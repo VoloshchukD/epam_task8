@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<candies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/candies"
+         xsi:schemaLocation="http://www.example.com/candies candies.xsd">
+    <candy>
+        <name>Mars</name>
+        <energy>1000</energy>
+        <types>
+            <type>
+                <chocolate withFilling="true" type="milk"/>
+            </type>
+            <type>
+                <cream/>
+            </type>
+        </types>
+        <ingredients>
+            <ingredient>
+                <name>sugar</name>
+                <weight>112</weight>
+            </ingredient>
+            <ingredient>
+                <name>vanillin</name>
+                <weight>25</weight>
+            </ingredient>
+            <ingredient>
+                <name>milk</name>
+                <weight>33</weight>
+            </ingredient>
+        </ingredients>
+        <value proteins="10" fats="13" carbohydrates="44"/>
+        <production>Mars, Incorporated</production>
+    </candy>
+
+</candies>

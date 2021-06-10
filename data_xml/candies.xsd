@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/candies"
+        xmlns:tns="http://www.example.com/candies"
+        elementFormDefault="qualified">
+
+    <element name="candies">
+        <complexType>
+            <sequence>
+                <element name="candy" type="tns:Candies" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Candies">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="energy" type="int"/>
+            <element name="types">
+                <complexType>
+                    <sequence>
+                        <element name="type" type="tns:Type" minOccurs="1" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ingredients">
+                <complexType>
+                    <sequence>
+                        <element name="ingredient" type="tns:Ingredient" minOccurs="1" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="value" type="tns:Value"/>
+            <element name="production" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Type">
+        <choice>
+            <element name="chocolate" type="tns:Chocolate"/>
+            <element name="toffee" type="tns:Toffee" maxOccurs="1"/>
+            <element name="souffle" type="tns:Souffle" maxOccurs="1"/>
+            <element name="licorice" type="tns:Licorice" maxOccurs="1"/>
+            <element name="truffle" type="tns:Truffle" maxOccurs="1"/>
+            <element name="marzipan" type="tns:Marzipan" maxOccurs="1"/>
+            <element name="fudge" type="tns:Fudge" maxOccurs="1"/>
+            <element name="fruit" type="tns:Fruit" maxOccurs="1"/>
+            <element name="milk" type="tns:Milk" maxOccurs="1"/>
+            <element name="liqueur" type="tns:Liqueur" maxOccurs="1"/>
+            <element name="lollipops" type="tns:Lollipops" maxOccurs="1"/>
+            <element name="cream" type="tns:Cream" maxOccurs="1"/>
+            <element name="nutty_grillage" type="tns:Nutty_grillage" maxOccurs="1"/>
+            <element name="jelly" type="tns:Jelly" maxOccurs="1"/>
+            <element name="candied_fruit" type="tns:Candied_fruit" maxOccurs="1"/>
+            <element name="ice_cream" type="tns:Ice_cream" maxOccurs="1"/>
+            <element name="dragees" type="tns:Dragees" maxOccurs="1"/>
+        </choice>
+    </complexType>
+
+    <complexType name="Chocolate">
+        <attribute name="withFilling" type="boolean" use="required"/>
+        <attribute name="type" use="optional" default="dark">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="dark"/>
+                    <enumeration value="milk"/>
+                    <enumeration value="white"/>
+                    <enumeration value="ruby"/>
+                    <enumeration value="vegan"/>
+                    <enumeration value="diabetic"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Toffee">
+        <attribute name="consistency" use="optional" default="semi-solid">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="cast_semi-solid"/>
+                    <enumeration value="replicated"/>
+                    <enumeration value="semi-solid"/>
+                    <enumeration value="soft"/>
+                    <enumeration value="viscous"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Souffle">
+        <attribute name="consistency">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="baked|fresh"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Licorice"/>
+    <complexType name="Truffle">
+        <attribute name="kind" type="string" use="required"/>
+    </complexType>
+    <complexType name="Marzipan">
+        <attribute name="type" use="required">
+            <simpleType>
+                <restriction base="element">
+                    <enumeration value="white"/>
+                    <enumeration value="yellow"/>
+                    <enumeration value="raw"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="preparation">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="cold|hot"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Fudge">
+        <attribute name="ingredient" use="required">
+            <simpleType>
+                <restriction base="element">
+                    <enumeration value="chocolate"/>
+                    <enumeration value="oil"/>
+                    <enumeration value="vanilla"/>
+                    <enumeration value="fruit"/>
+                    <enumeration value="lemon"/>
+                    <enumeration value="fruit_and_berry"/>
+                    <enumeration value="nutty"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Fruit">
+        <attribute name="flavor" type="string" use="required"/>
+    </complexType>
+    <complexType name="Milk"/>
+    <complexType name="Liqueur">
+        <attribute name="flavor" type="string" use="required"/>
+    </complexType>
+    <complexType name="Lollipops">
+        <attribute name="flavor" type="string" use="required"/>
+    </complexType>
+    <complexType name="Cream"/>
+    <complexType name="Nutty_grillage">
+        <attribute name="kind">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="hard|soft"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Jelly">
+        <attribute name="flavor" type="string" use="required"/>
+    </complexType>
+    <complexType name="Candied_fruit">
+        <attribute name="flavor" type="string" use="required"/>
+    </complexType>
+    <complexType name="Ice_cream">
+        <attribute name="base">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="fat|oil"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Dragees">
+        <attribute name="flavor" type="string" use="required"/>
+    </complexType>
+
+    <complexType name="Ingredient">
+        <sequence>
+            <element name="name" type="string">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="sugar"/>
+                        <enumeration value="water"/>
+                        <enumeration value="fructose"/>
+                        <enumeration value="vanillin"/>
+                        <enumeration value="milk"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="weight" type="positiveInteger"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Value">
+        <attribute name="proteins" type="positiveInteger" use="required"/>
+        <attribute name="fats" type="positiveInteger" use="required"/>
+        <attribute name="carbohydrates" type="positiveInteger" use="required"/>
+    </complexType>
+
+</schema>
