@@ -86,7 +86,7 @@
         </attribute>
     </complexType>
     <complexType name="Souffle">
-        <attribute name="consistency">
+        <attribute name="consistency" use="optional" default="fresh">
             <simpleType>
                 <restriction base="string">
                     <pattern value="baked|fresh"/>
@@ -96,7 +96,7 @@
     </complexType>
     <complexType name="Licorice"/>
     <complexType name="Truffle">
-        <attribute name="kind" type="string" use="required"/>
+        <attribute name="species" type="string" use="required"/>
     </complexType>
     <complexType name="Marzipan">
         <attribute name="type" use="required">
@@ -108,7 +108,7 @@
                 </restriction>
             </simpleType>
         </attribute>
-        <attribute name="preparation">
+        <attribute name="preparation" use="optional" default="cold">
             <simpleType>
                 <restriction base="string">
                     <pattern value="cold|hot"/>
@@ -116,34 +116,25 @@
             </simpleType>
         </attribute>
     </complexType>
-    <complexType name="Fudge">
-        <attribute name="ingredient" use="required">
+    <complexType name="Fudge"/>
+    <complexType name="Fruit"/>
+    <complexType name="Milk"/>
+    <complexType name="Liqueur"/>
+    <complexType name="Lollipops">
+        <attribute name="kind" use="optional" default="classic">
             <simpleType>
                 <restriction base="element">
-                    <enumeration value="chocolate"/>
-                    <enumeration value="oil"/>
-                    <enumeration value="vanilla"/>
-                    <enumeration value="fruit"/>
-                    <enumeration value="lemon"/>
-                    <enumeration value="fruit_and_berry"/>
-                    <enumeration value="nutty"/>
+                    <enumeration value="classic"/>
+                    <enumeration value="wrapped"/>
+                    <enumeration value="monpensier"/>
+                    <enumeration value="long"/>
                 </restriction>
             </simpleType>
         </attribute>
     </complexType>
-    <complexType name="Fruit">
-        <attribute name="flavor" type="string" use="required"/>
-    </complexType>
-    <complexType name="Milk"/>
-    <complexType name="Liqueur">
-        <attribute name="flavor" type="string" use="required"/>
-    </complexType>
-    <complexType name="Lollipops">
-        <attribute name="flavor" type="string" use="required"/>
-    </complexType>
     <complexType name="Cream"/>
     <complexType name="Nutty_grillage">
-        <attribute name="kind">
+        <attribute name="type" use="required">
             <simpleType>
                 <restriction base="string">
                     <pattern value="hard|soft"/>
@@ -152,22 +143,41 @@
         </attribute>
     </complexType>
     <complexType name="Jelly">
-        <attribute name="flavor" type="string" use="required"/>
-    </complexType>
-    <complexType name="Candied_fruit">
-        <attribute name="flavor" type="string" use="required"/>
-    </complexType>
-    <complexType name="Ice_cream">
-        <attribute name="base">
+        <attribute name="kind" use="required">
             <simpleType>
                 <restriction base="string">
-                    <pattern value="fat|oil"/>
+                    <pattern value="mousse|classic"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Candied_fruit">
+        <attribute name="type" use="optional" default="sugared">
+            <simpleType>
+                <restriction base="element">
+                    <enumeration value="folding"/>
+                    <enumeration value="glazed"/>
+                    <enumeration value="sugared"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+    <complexType name="Ice_cream">
+        <attribute name="kind" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="cream"/>
+                    <enumeration value="milky"/>
+                    <enumeration value="sorbet"/>
+                    <enumeration value="popsicles"/>
+                    <enumeration value="sherbet"/>
                 </restriction>
             </simpleType>
         </attribute>
     </complexType>
     <complexType name="Dragees">
-        <attribute name="flavor" type="string" use="required"/>
+        <attribute name="withFilling" type="boolean" use="required"/>
+        <attribute name="isDiet" type="boolean" use="optional" default="false"/>
     </complexType>
 
     <complexType name="Ingredient">
