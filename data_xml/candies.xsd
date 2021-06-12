@@ -7,12 +7,12 @@
     <element name="candies">
         <complexType>
             <sequence>
-                <element name="candy" type="tns:Candies" minOccurs="1" maxOccurs="unbounded"/>
+                <element name="candy" type="tns:Candy" minOccurs="1" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
 
-    <complexType name="Candies">
+    <complexType name="Candy">
         <sequence>
             <element name="name" type="string"/>
             <element name="energy" type="int"/>
@@ -33,27 +33,32 @@
             <element name="value" type="tns:Value"/>
             <element name="production" type="string"/>
         </sequence>
+<!--        <xs:attributeGroup name="personattr">-->
+<!--            <xs:attribute name="attr1" type="string"/>-->
+<!--            <xs:attribute name="attr2" type="integer"/>-->
+<!--        </xs:attributeGroup>-->
+
+<!--        <xs:complexType name="person">-->
+<!--            <xs:attributeGroup ref="personattr"/>-->
+<!--        </xs:complexType>-->
+
     </complexType>
 
     <complexType name="Type">
         <choice>
-            <element name="chocolate" type="tns:Chocolate"/>
-            <element name="toffee" type="tns:Toffee" maxOccurs="1"/>
-            <element name="souffle" type="tns:Souffle" maxOccurs="1"/>
-            <element name="licorice" type="tns:Licorice" maxOccurs="1"/>
-            <element name="truffle" type="tns:Truffle" maxOccurs="1"/>
-            <element name="marzipan" type="tns:Marzipan" maxOccurs="1"/>
-            <element name="fudge" type="tns:Fudge" maxOccurs="1"/>
-            <element name="fruit" type="tns:Fruit" maxOccurs="1"/>
-            <element name="milk" type="tns:Milk" maxOccurs="1"/>
-            <element name="liqueur" type="tns:Liqueur" maxOccurs="1"/>
-            <element name="lollipops" type="tns:Lollipops" maxOccurs="1"/>
-            <element name="cream" type="tns:Cream" maxOccurs="1"/>
-            <element name="nutty_grillage" type="tns:Nutty_grillage" maxOccurs="1"/>
-            <element name="jelly" type="tns:Jelly" maxOccurs="1"/>
-            <element name="candied_fruit" type="tns:Candied_fruit" maxOccurs="1"/>
-            <element name="ice_cream" type="tns:Ice_cream" maxOccurs="1"/>
-            <element name="dragees" type="tns:Dragees" maxOccurs="1"/>
+            <element name="name" type="string">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="dark"/>
+                        <enumeration value="milk"/>
+                        <enumeration value="white"/>
+                        <enumeration value="ruby"/>
+                        <enumeration value="vegan"/>
+                        <enumeration value="diabetic"/>
+                    </restriction>
+                </simpleType>
+            </element>
+
         </choice>
     </complexType>
 
