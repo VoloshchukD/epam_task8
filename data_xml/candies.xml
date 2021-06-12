@@ -6,29 +6,16 @@
         <name>Mars</name>
         <energy>1000</energy>
         <types>
-            <type>
-                <chocolate withFilling="true" type="milk"/>
-            </type>
-            <type>
-                <cream/>
-            </type>
+            <type name="chocolate" withFilling="true"/>
         </types>
         <ingredients>
-            <ingredient>
-                <name>sugar</name>
-                <weight>112</weight>
-            </ingredient>
-            <ingredient>
-                <name>vanillin</name>
-                <weight>25</weight>
-            </ingredient>
-            <ingredient>
-                <name>milk</name>
-                <weight>33</weight>
-            </ingredient>
+            <ingredient name="sugar" weight="112"/>
+            <ingredient name="vanillin" weight="25"/>
+            <ingredient name="milk" weight="33" kind="powdered"/>
         </ingredients>
         <value proteins="10" fats="13" carbohydrates="44"/>
         <production>Mars, Incorporated</production>
     </candy>
+
 
 </candies>
