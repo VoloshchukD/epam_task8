@@ -1,5 +1,6 @@
 package by.epamtc.entity;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -11,11 +12,16 @@ public class Candy {
 
     private Set<CandyType> types;
 
-    private List<Ingredient> ingredients;
+    private Set<Ingredient> ingredients;
 
     private Value value;
 
     private String production;
+
+    public Candy() {
+        types = new HashSet<>();
+        ingredients = new HashSet<>();
+    }
 
     public String getName() {
         return name;
@@ -41,11 +47,11 @@ public class Candy {
         this.types = types;
     }
 
-    public List<Ingredient> getIngredients() {
+    public Set<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

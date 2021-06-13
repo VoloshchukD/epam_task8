@@ -3,19 +3,18 @@
          xmlns="http://www.example.com/candies"
          xsi:schemaLocation="http://www.example.com/candies candies.xsd">
     <candy>
-        <name>Mars</name>
+        <candyName>Mars</candyName>
         <energy>1000</energy>
         <types>
-            <type name="chocolate" withFilling="true"/>
+            <type typeName="chocolate" withFilling="true"/>
         </types>
         <ingredients>
-            <ingredient name="sugar" weight="112"/>
-            <ingredient name="vanillin" weight="25"/>
-            <ingredient name="milk" weight="33" kind="powdered"/>
+            <ingredient ingredientName="sugar" weight="112"/>
+            <ingredient ingredientName="vanillin" weight="25"/>
+            <ingredient ingredientName="milk" weight="33" kind="powdered"/>
         </ingredients>
         <value proteins="10" fats="13" carbohydrates="44"/>
         <production>Mars, Incorporated</production>
     </candy>
-
 
 </candies>

@@ -14,7 +14,7 @@
 
     <complexType name="Candy">
         <sequence>
-            <element name="name" type="string"/>
+            <element name="candyName" type="string"/>
             <element name="energy" type="int"/>
             <element name="types">
                 <complexType>
@@ -36,7 +36,7 @@
     </complexType>
 
     <complexType name="Type">
-        <attribute name="name" type="string" use="required">
+        <attribute name="typeName" type="string" use="required">
             <simpleType>
                 <restriction base="string">
                     <enumeration value="chocolate"/>
@@ -92,7 +92,7 @@
     </complexType>
 
     <complexType name="Ingredient">
-        <attribute name="name" type="string"/>
+        <attribute name="ingredientName" type="string"/>
         <attribute name="weight" type="integer">
             <simpleType>
                 <restriction base="integer">
