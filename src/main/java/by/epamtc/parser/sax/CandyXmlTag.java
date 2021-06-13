@@ -1,5 +1,9 @@
 package by.epamtc.parser.sax;
 
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public enum CandyXmlTag {
 
     CANDIES,
@@ -26,6 +30,8 @@ public enum CandyXmlTag {
 
     private static final String ENUM_WORDS_SEPARATOR = "_";
 
+    private static final String MAKE_TAG_NAME_REGEX = "(.+)[_](.)(.*)";
+
     public boolean compareToTag(String tag) {
         //TODO tag == null
         String valueAsString = this.toString().replaceAll(ENUM_WORDS_SEPARATOR, ""); //TODO add regex
@@ -50,6 +56,16 @@ public enum CandyXmlTag {
             i++;
         }
         return tagAsEnum;
+    }
+
+    public String toTagName() {
+        String value = this.name().toLowerCase();
+        Pattern pattern = Pattern.compile(MAKE_TAG_NAME_REGEX);
+        Matcher matcher = pattern.matcher(value);
+        if (matcher.find()) {
+            value = matcher.group(1) + matcher.group(2).toUpperCase() + matcher.group(3);
+        }
+        return value;
     }
 
 }

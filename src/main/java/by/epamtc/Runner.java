@@ -2,13 +2,14 @@ package by.epamtc;
 
 import by.epamtc.entity.Candy;
 import by.epamtc.parser.sax.CandySaxParser;
+import by.epamtc.parser.stax.CandyStaxParser;
 
 import java.util.Set;
 
 
 public class Runner {
     public static void main(String[] args) {
-        CandySaxParser parser = new CandySaxParser();
+        CandyStaxParser parser = new CandyStaxParser();
         parser.parseCandies("data_xml/candies.xml");
         Set<Candy> candies = parser.getCandies();
 

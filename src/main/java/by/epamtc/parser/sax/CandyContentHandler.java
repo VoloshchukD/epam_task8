@@ -28,7 +28,7 @@ public class CandyContentHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
-        if (CandyXmlTag.CANDY.compareToTag(qName)) {
+        if (CandyXmlTag.CANDY.toTagName().equals(qName)) {
             currentCandy = new Candy();
         } else if (CandyXmlTag.TYPE.compareToTag(qName)) {
             CandyType currentType = new CandyType();
@@ -38,13 +38,13 @@ public class CandyContentHandler extends DefaultHandler {
             currentType.setPreparation(attributes.getValue(3));
             currentType.setSpecies(attributes.getValue(4));
             currentCandy.getTypes().add(currentType);
-        } else if (CandyXmlTag.INGREDIENT.compareToTag(qName)) {
+        } else if (CandyXmlTag.INGREDIENT.toTagName().equals(qName)) {
             Ingredient ingredient = new Ingredient();
             ingredient.setName(attributes.getValue(0));
             ingredient.setWeight(Integer.parseInt(attributes.getValue(1)));
             ingredient.setKind(attributes.getValue(2));
             currentCandy.getIngredients().add(ingredient);
-        } else if (CandyXmlTag.VALUE.compareToTag(qName)) {
+        } else if (CandyXmlTag.VALUE.toTagName().equals(qName)) {
             Value value = new Value();
             value.setProteins(Integer.parseInt(attributes.getValue(0)));
             value.setFats(Integer.parseInt(attributes.getValue(1)));
@@ -68,7 +68,7 @@ public class CandyContentHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (CandyXmlTag.CANDY.compareToTag(qName)) {
+        if (CandyXmlTag.CANDY.toTagName().equals(qName)) {
             candies.add(currentCandy);
         }
     }
