@@ -7,7 +7,7 @@
     <element name="candies">
         <complexType>
             <sequence>
-                <element name="candy" type="tns:Candy" minOccurs="1" maxOccurs="unbounded"/>
+                <element name="candy" type="tns:Candy" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
@@ -16,10 +16,12 @@
         <sequence>
             <element name="candyName" type="string"/>
             <element name="energy" type="int"/>
+            <element name="productionDate" type="date"/>
+            <element name="expirationDate" type="date"/>
             <element name="types">
                 <complexType>
                     <sequence>
-                        <element name="type" type="tns:Type" minOccurs="1" maxOccurs="unbounded"/>
+                        <element ref="tns:Type" minOccurs="1" maxOccurs="unbounded"/>
                     </sequence>
                 </complexType>
             </element>
@@ -35,72 +37,267 @@
         </sequence>
     </complexType>
 
-    <complexType name="Type">
-        <attribute name="typeName" type="string" use="required">
-            <simpleType>
-                <restriction base="string">
-                    <enumeration value="chocolate"/>
-                    <enumeration value="toffee"/>
-                    <enumeration value="souffle"/>
-                    <enumeration value="licorice"/>
-                    <enumeration value="truffle"/>
-                    <enumeration value="marzipan"/>
-                    <enumeration value="fudge"/>
-                    <enumeration value="fruit"/>
-                    <enumeration value="milky"/>
-                    <enumeration value="liqueur"/>
-                    <enumeration value="lollipops"/>
-                    <enumeration value="cream"/>
-                    <enumeration value="nutty_grillage"/>
-                    <enumeration value="jelly"/>
-                    <enumeration value="candied_fruit"/>
-                    <enumeration value="ice_cream"/>
-                    <enumeration value="dragees"/>
-                    <enumeration value="diabetic"/>
-                </restriction>
-            </simpleType>
-        </attribute>
-        <attribute name="withFilling" type="boolean" use="optional" default="false"/>
-        <attribute name="consistency" use="optional" default="smooth">
-            <simpleType>
-                <restriction base="string">
-                    <enumeration value="smooth"/>
-                    <enumeration value="lumpy"/>
-                    <enumeration value="sticky"/>
-                    <enumeration value="crispy"/>
-                    <enumeration value="crumbly"/>
-                    <enumeration value="crunchy"/>
-                    <enumeration value="hard"/>
-                    <enumeration value="tough"/>
-                    <enumeration value="chewy"/>
-                </restriction>
-            </simpleType>
-        </attribute>
-        <attribute name="preparation" use="optional" default="fresh">
-            <simpleType>
-                <restriction base="string">
-                    <enumeration value="cold"/>
-                    <enumeration value="hot"/>
-                    <enumeration value="baked"/>
-                    <enumeration value="fresh"/>
-                    <enumeration value="boiled"/>
-                    <enumeration value="fried"/>
-                </restriction>
-            </simpleType>
-        </attribute>
-        <attribute name="species" type="string" use="optional" default="classic"/>
+    <complexType name="CandyType">
+        <attribute name="kind" type="string" use="required"/>
     </complexType>
 
+    <complexType name="ChocolateType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="withFilling" type="boolean" use="required"/>
+                <attribute name="isUnsweetened" type="boolean" use="optional" default="false"/>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="dark"/>
+                            <enumeration value="milk"/>
+                            <enumeration value="white"/>
+                            <enumeration value="ruby"/>
+                            <enumeration value="vegan"/>
+                            <enumeration value="diabetic"/>
+                            <enumeration value="unsweetened"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="IrisType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="isFlavored" type="boolean" use="optional" default="false"/>
+                <attribute name="consistency" type="string" use="optional" default="semi-solid">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="cast_semi-solid"/>
+                            <enumeration value="replicated"/>
+                            <enumeration value="semi-solid"/>
+                            <enumeration value="soft"/>
+                            <enumeration value="viscous"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="toffee"/>
+                            <enumeration value="fudge"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="SouffleType">
+        <complexContent>
+            <restriction base="tns:CandyType">
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="string">
+                            <pattern value="baked|fresh"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </restriction>
+        </complexContent>
+    </complexType>
+    <complexType name="LicoriceType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="flavored"/>
+                            <enumeration value="classic"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="variety" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="choo_choo_bar"/>
+                            <enumeration value="good_n_plenty"/>
+                            <enumeration value="allsorts"/>
+                            <enumeration value="allsorts"/>
+                            <enumeration value="drops"/>
+                            <enumeration value="vigroids"/>
+                            <enumeration value="pontefract_cake"/>
+                            <enumeration value="sugarelly"/>
+                            <enumeration value="salty"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="bindingAgent" type="string" use="optional" default="-"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="TruffleType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="withFilling" type="boolean" use="required"/>
+                <attribute name="withFlavoredCoating" type="boolean" use="required"/>
+                <attribute name="species" type="string" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="MarzipanType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="preparation" type="string" use="optional" default="cold">
+                    <simpleType>
+                        <restriction base="string">
+                            <pattern value="cold|hot"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="white"/>
+                            <enumeration value="yellow"/>
+                            <enumeration value="raw"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="FruitType">
+        <complexContent>
+            <restriction base="tns:CandyType">
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="marmalade"/>
+                            <enumeration value="chewy"/>
+                            <enumeration value="candied"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </restriction>
+        </complexContent>
+    </complexType>
+    <complexType name="LollipopsType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="isOnStick" type="boolean" use="required"/>
+                <attribute name="withFlavoredCoating" type="boolean" use="required"/>
+                <attribute name="filling" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="bubblegum"/>
+                            <enumeration value="soft_candy"/>
+                            <enumeration value="none"/>
+                            <enumeration value="long"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="thingsEmbedded" type="string" use="optional" default="none">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="insect"/>
+                            <enumeration value="flashing_light"/>
+                            <enumeration value="motorized_device"/>
+                            <enumeration value="none"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="classic"/>
+                            <enumeration value="wrapped"/>
+                            <enumeration value="monpensier"/>
+                            <enumeration value="long"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="JellyType">
+        <complexContent>
+            <restriction base="tns:CandyType">
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="string">
+                            <pattern value="mousse|classic|lokum"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </restriction>
+        </complexContent>
+    </complexType>
+    <complexType name="IceCreamType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="form" type="string" use="required">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="lolly"/>
+                            <enumeration value="cone"/>
+                            <enumeration value="regular"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="withFlavoredCoating" type="boolean" use="required"/>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="cream"/>
+                            <enumeration value="milky"/>
+                            <enumeration value="sorbet"/>
+                            <enumeration value="popsicles"/>
+                            <enumeration value="sherbet"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="DrageesType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="withFilling" type="boolean" use="required"/>
+                <attribute name="isDiet" type="boolean" use="optional" default="false"/>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="cream"/>
+                            <enumeration value="milky"/>
+                            <enumeration value="sorbet"/>
+                            <enumeration value="popsicles"/>
+                            <enumeration value="sherbet"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Type" type="tns:CandyType" abstract="true"/>
+    <element name="Chocolate" type="tns:ChocolateType" substitutionGroup="tns:Type"/>
+    <element name="Iris" type="tns:IrisType" substitutionGroup="tns:Type"/>
+    <element name="Souffle" type="tns:SouffleType" substitutionGroup="tns:Type"/>
+    <element name="Licorice" type="tns:LicoriceType" substitutionGroup="tns:Type"/>
+    <element name="Truffle" type="tns:TruffleType" substitutionGroup="tns:Type"/>
+    <element name="Marzipan" type="tns:MarzipanType" substitutionGroup="tns:Type"/>
+    <element name="Fruit" type="tns:FruitType" substitutionGroup="tns:Type"/>
+    <element name="Lollipops" type="tns:LollipopsType" substitutionGroup="tns:Type"/>
+    <element name="Jelly" type="tns:JellyType" substitutionGroup="tns:Type"/>
+    <element name="IceCream" type="tns:IceCreamType" substitutionGroup="tns:Type"/>
+    <element name="Dragees" type="tns:DrageesType" substitutionGroup="tns:Type"/>
+
     <complexType name="Ingredient">
-        <attribute name="ingredientName" type="string"/>
-        <attribute name="weight" type="integer">
+        <attribute name="ingredientName" type="string" use="required"/>
+        <attribute name="weight" type="integer" use="required">
             <simpleType>
                 <restriction base="integer">
                     <minInclusive value="0"/>
                 </restriction>
             </simpleType>
         </attribute>
-        <attribute name="kind" type="string"/>
+        <attribute name="kind" type="string" use="optional" default="-"/>
     </complexType>
 
     <complexType name="Value">

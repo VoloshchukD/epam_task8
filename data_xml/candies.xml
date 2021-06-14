@@ -5,8 +5,10 @@
     <candy>
         <candyName>Mars</candyName>
         <energy>1000</energy>
+        <productionDate>2021-06-12</productionDate>
+        <expirationDate>2021-09-15</expirationDate>
         <types>
-            <type typeName="chocolate" withFilling="true"/>
+            <Chocolate withFilling="true" kind="dark" />
         </types>
         <ingredients>
             <ingredient ingredientName="sugar" weight="112"/>
