@@ -7,10 +7,9 @@ import by.epamtc.parser.stax.CandyStaxParser;
 
 import java.util.Set;
 
-
 public class Runner {
     public static void main(String[] args) {
-        CandyDomParser parser = new CandyDomParser();
+        CandyStaxParser parser = new CandyStaxParser();
         parser.parseCandies("data_xml/candies.xml");
         Set<Candy> candies = parser.getCandies();
 

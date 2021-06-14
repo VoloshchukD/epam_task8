@@ -1,7 +1,10 @@
 package by.epamtc.entity;
 
+import by.epamtc.entity.type.CandyType;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Candy {
@@ -9,6 +12,10 @@ public class Candy {
     private String name;
 
     private int energy;
+
+    private LocalDate productionDate;
+
+    private LocalDate  expirationDate;
 
     private Set<CandyType> types;
 
@@ -37,6 +44,22 @@ public class Candy {
 
     public void setEnergy(int energy) {
         this.energy = energy;
+    }
+
+    public LocalDate getProductionDate() {
+        return productionDate;
+    }
+
+    public void setProductionDate(LocalDate productionDate) {
+        this.productionDate = productionDate;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     public Set<CandyType> getTypes() {
@@ -78,6 +101,9 @@ public class Candy {
         Candy candy = (Candy) o;
         return energy == candy.energy
                 && (name == candy.name || (name != null && name.equals(candy.name)))
+                && (productionDate == candy.productionDate || (productionDate != null && productionDate.equals(candy.productionDate)))
+                && (expirationDate == candy.expirationDate || (expirationDate != null && expirationDate.equals(candy.expirationDate)))
+                && (production == candy.production || (production != null && production.equals(candy.production)))
                 && (types == candy.types || (types != null && types.equals(candy.types)))
                 && (ingredients == candy.ingredients || (ingredients != null && ingredients.equals(candy.ingredients)))
                 && (value == candy.value || (value != null && value.equals(candy.value)))
@@ -89,6 +115,8 @@ public class Candy {
         int result = 37;
         result = 17 * result + ((name != null) ? name.hashCode() : 0);
         result = 17 * result + energy;
+        result = 17 * result + ((productionDate != null) ? productionDate.hashCode() : 0);
+        result = 17 * result + ((expirationDate != null) ? expirationDate.hashCode() : 0);
         result = 17 * result + ((value != null) ? value.hashCode() : 0);
         result = 17 * result + ((production != null) ? production.hashCode() : 0);
         if (types != null) {
@@ -109,6 +137,8 @@ public class Candy {
         return getClass().getName() +
                 "@name=" + name +
                 ", energy=" + energy +
+                ", productionDate=" + productionDate +
+                ", expirationDate=" + expirationDate +
                 ", types=" + types +
                 ", ingredient=" + ingredients +
                 ", value=" + value +

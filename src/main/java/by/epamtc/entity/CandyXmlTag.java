@@ -1,6 +1,5 @@
-package by.epamtc.parser.sax;
+package by.epamtc.entity;
 
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,19 +9,29 @@ public enum CandyXmlTag {
     CANDY,
     CANDY_NAME,
     ENERGY,
+    PRODUCTION_DATE,
+    EXPIRATION_DATE,
     TYPES,
-    TYPE,
+    CHOCOLATE,
+    IRIS,
+    LOLLIPOPS,
+    WITH_FILLING,
+    UNSWEETENED,
+    KIND,
+    WITH_FLAVOR,
+    CONSISTENCY,
+    ON_STICK,
+    WITH_COATING,
+    FILLING,
+    THING_EMBEDDED,
     INGREDIENTS,
     INGREDIENT,
     PRODUCTION,
     TYPE_NAME,
-    WITH_FILLING,
-    CONSISTENCY,
     PREPARATION,
     SPECIES,
     INGREDIENT_NAME,
     WEIGHT,
-    KIND,
     VALUE,
     PROTEINS,
     FATS,
@@ -48,7 +57,7 @@ public enum CandyXmlTag {
         CandyXmlTag[] tags = CandyXmlTag.values();
         CandyXmlTag tagAsEnum = null;
         int i = 0;
-        while (i < tags.length){
+        while (i < tags.length) {
             if (tags[i].compareToTag(tag)) {
                 tagAsEnum = tags[i];
                 break;

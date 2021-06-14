@@ -1,11 +1,13 @@
 package by.epamtc.parser.stax;
 
 import by.epamtc.entity.Candy;
-import by.epamtc.entity.CandyType;
 import by.epamtc.entity.Ingredient;
 import by.epamtc.entity.Value;
+import by.epamtc.entity.type.ChocolateType;
+import by.epamtc.entity.type.IrisType;
+import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.parser.AbstractCandyParser;
-import by.epamtc.parser.sax.CandyXmlTag;
+import by.epamtc.entity.CandyXmlTag;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -61,19 +63,39 @@ public class CandyStaxParser extends AbstractCandyParser {
                         case ENERGY:
                             candy.setEnergy(Integer.parseInt(getXMLText(reader)));
                             break;
-                        case TYPE:
-                            CandyType candyType = new CandyType();
-                            candyType.setName(reader.getAttributeValue(null,
-                                    CandyXmlTag.TYPE_NAME.toTagName()));
-                            candyType.setWithFilling(Boolean.parseBoolean(
+                        case CHOCOLATE:
+                            ChocolateType chocolateType = new ChocolateType();
+                            chocolateType.setKind(reader.getAttributeValue(null,
+                                    CandyXmlTag.KIND.toTagName()));
+                            chocolateType.setWithFilling(Boolean.parseBoolean(
                                     reader.getAttributeValue(null, CandyXmlTag.WITH_FILLING.toTagName())));
-                            candyType.setConsistency(reader.getAttributeValue(null,
-                                    CandyXmlTag.CONSISTENCY.toTagName()));
-                            candyType.setPreparation(reader.getAttributeValue(null,
-                                    CandyXmlTag.PREPARATION.toTagName()));
-                            candyType.setSpecies(reader.getAttributeValue(null,
-                                    CandyXmlTag.SPECIES.toTagName()));
-                            candy.getTypes().add(candyType);
+                            chocolateType.setUnsweetened(Boolean.parseBoolean(reader.getAttributeValue(null,
+                                    CandyXmlTag.UNSWEETENED.toTagName())));
+                            chocolateType.setWithCoating(Boolean.parseBoolean(reader.getAttributeValue(null,
+                                    CandyXmlTag.WITH_COATING.toTagName())));
+                            candy.getTypes().add(chocolateType);
+                            break;
+                        case IRIS:
+                            IrisType irisType = new IrisType();
+                            irisType.setKind(reader.getAttributeValue(null,
+                                    CandyXmlTag.KIND.toTagName()));
+                            irisType.setConsistency(
+                                    reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toTagName()));
+                            irisType.setFlavored(Boolean.parseBoolean(reader.getAttributeValue(null,
+                                    CandyXmlTag.WITH_FLAVOR.toTagName())));
+                            candy.getTypes().add(irisType);
+                            break;
+                        case LOLLIPOPS:
+                            LollipopsType lollipopsType = new LollipopsType();
+                            lollipopsType.setKind(reader.getAttributeValue(null,
+                                    CandyXmlTag.KIND.toTagName()));
+                            lollipopsType.setThingsEmbedded(
+                                    reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toTagName()));
+                            lollipopsType.setFilling(reader.getAttributeValue(null,
+                                    CandyXmlTag.FILLING.toTagName()));
+                            lollipopsType.setOnStick(Boolean.parseBoolean(reader.getAttributeValue(null,
+                                    CandyXmlTag.ON_STICK.toTagName())));
+                            candy.getTypes().add(lollipopsType);
                             break;
                         case INGREDIENT:
                             Ingredient ingredient = new Ingredient();

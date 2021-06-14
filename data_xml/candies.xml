@@ -8,7 +8,7 @@
         <productionDate>2021-06-12</productionDate>
         <expirationDate>2021-09-15</expirationDate>
         <types>
-            <Chocolate withFilling="true" kind="dark" />
+            <chocolate withFilling="true" kind="white"/>
         </types>
         <ingredients>
             <ingredient ingredientName="sugar" weight="112"/>

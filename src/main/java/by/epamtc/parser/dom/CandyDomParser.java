@@ -1,11 +1,14 @@
 package by.epamtc.parser.dom;
 
 import by.epamtc.entity.Candy;
-import by.epamtc.entity.CandyType;
+import by.epamtc.entity.type.CandyType;
 import by.epamtc.entity.Ingredient;
 import by.epamtc.entity.Value;
+import by.epamtc.entity.type.ChocolateType;
+import by.epamtc.entity.type.IrisType;
+import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.parser.AbstractCandyParser;
-import by.epamtc.parser.sax.CandyXmlTag;
+import by.epamtc.entity.CandyXmlTag;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,6 +19,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CandyDomParser extends AbstractCandyParser {
 
@@ -55,11 +60,27 @@ public class CandyDomParser extends AbstractCandyParser {
         candy.setName(getElementTextContent(candyElement, CandyXmlTag.CANDY_NAME.toTagName()));
         candy.setEnergy(Integer.parseInt(getElementTextContent(candyElement, CandyXmlTag.ENERGY.toTagName())));
         candy.setProduction(getElementTextContent(candyElement, CandyXmlTag.PRODUCTION.toTagName()));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        candy.setProductionDate(LocalDate.parse(getElementTextContent(candyElement,
+                CandyXmlTag.PRODUCTION_DATE.toTagName()), formatter));
+        candy.setExpirationDate(LocalDate.parse(getElementTextContent(candyElement,
+                CandyXmlTag.EXPIRATION_DATE.toTagName()), formatter));
 
-        NodeList typesList = candyElement.getElementsByTagName(CandyXmlTag.TYPE.toTagName());
-        for (int i = 0; i < typesList.getLength(); i++) {
-            Element currentElement = (Element) typesList.item(i);
-            CandyType candyType = buildCandyType(currentElement);
+        Element chocolateTypesElement = (Element) candyElement.getElementsByTagName(
+                CandyXmlTag.CHOCOLATE.toTagName()).item(0);
+        Element irisTypesElement = (Element) candyElement.getElementsByTagName(
+                CandyXmlTag.IRIS.toTagName()).item(0);
+        Element lollipopsTypesElement = (Element) candyElement.getElementsByTagName(
+                CandyXmlTag.LOLLIPOPS.toTagName()).item(0);
+
+        if(chocolateTypesElement != null) {
+            CandyType candyType = buildChocolateType(chocolateTypesElement);
+            candy.getTypes().add(candyType);
+        } else if (irisTypesElement != null) {
+            CandyType candyType = buildIrisType(irisTypesElement);
+            candy.getTypes().add(candyType);
+        } else if (lollipopsTypesElement != null) {
+            CandyType candyType = buildLollipopsType(lollipopsTypesElement);
             candy.getTypes().add(candyType);
         }
 
@@ -80,14 +101,29 @@ public class CandyDomParser extends AbstractCandyParser {
         return candy;
     }
 
-    private CandyType buildCandyType(Element typeElement) {
-        CandyType candyType = new CandyType();
-        candyType.setName(typeElement.getAttribute(CandyXmlTag.TYPE_NAME.toTagName()));
-        candyType.setWithFilling(Boolean.parseBoolean(
-                typeElement.getAttribute(CandyXmlTag.WITH_FILLING.toTagName())));
+    private CandyType buildChocolateType(Element typeElement) {
+        ChocolateType candyType = new ChocolateType();
+        candyType.setKind(typeElement.getAttribute(CandyXmlTag.KIND.toTagName()));
+        candyType.setUnsweetened(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.UNSWEETENED.toTagName())));
+        candyType.setWithCoating(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_COATING.toTagName())));
+        candyType.setWithFilling(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.FILLING.toTagName())));
+        return candyType;
+    }
+
+    private CandyType buildIrisType(Element typeElement) {
+        IrisType candyType = new IrisType();
+        candyType.setKind(typeElement.getAttribute(CandyXmlTag.KIND.toTagName()));
+        candyType.setFlavored(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_FLAVOR.toTagName())));
         candyType.setConsistency(typeElement.getAttribute(CandyXmlTag.CONSISTENCY.toTagName()));
-        candyType.setPreparation(typeElement.getAttribute(CandyXmlTag.PREPARATION.toTagName()));
-        candyType.setSpecies(typeElement.getAttribute(CandyXmlTag.SPECIES.toTagName()));
+        return candyType;
+    }
+
+    private CandyType buildLollipopsType(Element typeElement) {
+        LollipopsType candyType = new LollipopsType();
+        candyType.setKind(typeElement.getAttribute(CandyXmlTag.KIND.toTagName()));
+        candyType.setFilling(typeElement.getAttribute(CandyXmlTag.FILLING.toTagName()));
+        candyType.setOnStick(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.ON_STICK.toTagName())));
+        candyType.setThingsEmbedded(typeElement.getAttribute(CandyXmlTag.THING_EMBEDDED.toTagName()));
         return candyType;
     }
 
