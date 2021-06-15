@@ -14,8 +14,20 @@
 
     <complexType name="Candy">
         <sequence>
-            <element name="candyName" type="string"/>
-            <element name="energy" type="int"/>
+            <element name="candyName">
+                <simpleType>
+                    <restriction base="ID">
+                        <pattern value="[^\s]\D{1,25}[^\s]"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="energy" type="int">
+                <simpleType>
+                    <restriction base="int">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </element>
             <element name="productionDate" type="date"/>
             <element name="expirationDate" type="date"/>
             <element name="types">

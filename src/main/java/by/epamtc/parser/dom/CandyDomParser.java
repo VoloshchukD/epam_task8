@@ -9,6 +9,9 @@ import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.parser.AbstractCandyParser;
 import by.epamtc.entity.CandyXmlTag;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -26,32 +29,34 @@ public class CandyDomParser extends AbstractCandyParser {
 
     private DocumentBuilder docBuilder;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public CandyDomParser() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            e.printStackTrace(); //TODO log
+            logger.log(Level.ERROR, "Error while creating DocumentBuilder" + e.getMessage());
         }
     }
 
     @Override
     public void parseCandies(String fileName) {
+        //not null
         try {
             Document document = docBuilder.parse(fileName);
             Element rootElement = document.getDocumentElement();
             NodeList candiesList = rootElement.getElementsByTagName(
                     CandyXmlTag.CANDY.toTagName());
-            for (int i = 0; i < candiesList.getLength(); i++){
+            for (int i = 0; i < candiesList.getLength(); i++) {
                 Element currentElement = (Element) candiesList.item(i);
                 Candy currentCandy = buildCandy(currentElement);
                 candies.add(currentCandy);
             }
-
         } catch (SAXException e) {
-            e.printStackTrace(); //TODO log
+            logger.log(Level.ERROR, "Error while DOM parsing " + e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace(); //TODO log
+            logger.log(Level.ERROR, "IO exception while DOM parsing" + e.getMessage());
         }
     }
 
@@ -73,7 +78,7 @@ public class CandyDomParser extends AbstractCandyParser {
         Element lollipopsTypesElement = (Element) candyElement.getElementsByTagName(
                 CandyXmlTag.LOLLIPOPS.toTagName()).item(0);
 
-        if(chocolateTypesElement != null) {
+        if (chocolateTypesElement != null) {
             CandyType candyType = buildChocolateType(chocolateTypesElement);
             candy.getTypes().add(candyType);
         } else if (irisTypesElement != null) {

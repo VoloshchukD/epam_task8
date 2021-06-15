@@ -8,6 +8,9 @@ import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.parser.AbstractCandyParser;
 import by.epamtc.entity.CandyXmlTag;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -20,6 +23,8 @@ import java.io.FileNotFoundException;
 public class CandyStaxParser extends AbstractCandyParser {
 
     private XMLInputFactory inputFactory;
+
+    private static final Logger logger = LogManager.getLogger();
 
     public CandyStaxParser() {
         inputFactory = XMLInputFactory.newInstance();
@@ -43,9 +48,9 @@ public class CandyStaxParser extends AbstractCandyParser {
                 }
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace(); //TODO log
+            logger.log(Level.ERROR, "FileNotFoundException while Stax parsing " + e.getMessage());
         } catch (XMLStreamException e) {
-            e.printStackTrace(); //TODO log
+            logger.log(Level.ERROR, "Error while Stax parsing " + e.getMessage());
         }
     }
 
