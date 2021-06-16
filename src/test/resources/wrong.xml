@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<candies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/test"
+         xsi:schemaLocation="http://www.example.com/test test.xsd">
+    <candy>
+        <candyName>Mars
+        <energy>1000</energy>
+        <productionDate>2021-06-12</productionDate>
+        <expirationDate>2021-09-15</expirationDate>
+        <types>
+            <chocolate withFilling="true" unsweetened="false" kind="milk"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="112" kind="white"/>
+            <ingredient ingredientName="vanillin" weight="25" kind="classic"/>
+            <ingredient ingredientName="milk" weight="33" kind="powdered"/>
+        </ingredients>
+        <value proteins="10" fats="13" carbohydrates="44"/>
+        <production>Mars.Inc</production>
+    </candy>
+</candies>

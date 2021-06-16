@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.example.com/test"
         xmlns:tns="http://www.example.com/test"
         elementFormDefault="qualified">
-
     <element name="candies">
         <complexType>
             <sequence>
@@ -21,7 +20,7 @@
                     </restriction>
                 </simpleType>
             </element>
-            <element name="energy" type="int">
+            <element name="energy">
                 <simpleType>
                     <restriction base="int">
                         <minInclusive value="1"/>
@@ -49,16 +48,14 @@
         </sequence>
     </complexType>
 
-    <complexType name="CandyType">
-        <attribute name="kind" type="string" use="required"/>
-    </complexType>
+    <complexType name="CandyType"/>
 
     <complexType name="ChocolateType">
         <complexContent>
             <extension base="tns:CandyType">
                 <attribute name="withFilling" type="boolean" use="required"/>
                 <attribute name="unsweetened" type="boolean" use="optional" default="false"/>
-                <attribute name="kind" type="string" use="required">
+                <attribute name="kind" use="required">
                     <simpleType>
                         <restriction base="string">
                             <enumeration value="dark"/>
@@ -78,7 +75,7 @@
         <complexContent>
             <extension base="tns:CandyType">
                 <attribute name="withFlavor" type="boolean" use="optional" default="false"/>
-                <attribute name="consistency" type="string" use="optional" default="semi-solid">
+                <attribute name="consistency" use="optional" default="semi-solid">
                     <simpleType>
                         <restriction base="string">
                             <enumeration value="cast_semi-solid"/>
@@ -89,9 +86,9 @@
                         </restriction>
                     </simpleType>
                 </attribute>
-                <attribute name="kind" type="string" use="required">
+                <attribute name="kind" use="required">
                     <simpleType>
-                        <restriction base="element">
+                        <restriction base="string">
                             <enumeration value="toffee"/>
                             <enumeration value="fudge"/>
                         </restriction>
@@ -104,9 +101,9 @@
         <complexContent>
             <extension base="tns:CandyType">
                 <attribute name="onStick" type="boolean" use="required"/>
-                <attribute name="filling" type="string" use="required">
+                <attribute name="filling" use="required">
                     <simpleType>
-                        <restriction base="element">
+                        <restriction base="string">
                             <enumeration value="bubblegum"/>
                             <enumeration value="soft_candy"/>
                             <enumeration value="none"/>
@@ -114,9 +111,9 @@
                         </restriction>
                     </simpleType>
                 </attribute>
-                <attribute name="thingEmbedded" type="string" use="optional" default="none">
+                <attribute name="thingEmbedded" use="optional" default="none">
                     <simpleType>
-                        <restriction base="element">
+                        <restriction base="string">
                             <enumeration value="insect"/>
                             <enumeration value="flashing_light"/>
                             <enumeration value="motorized_device"/>
@@ -124,9 +121,9 @@
                         </restriction>
                     </simpleType>
                 </attribute>
-                <attribute name="kind" type="string" use="required">
+                <attribute name="kind" use="required">
                     <simpleType>
-                        <restriction base="element">
+                        <restriction base="string">
                             <enumeration value="classic"/>
                             <enumeration value="wrapped"/>
                             <enumeration value="monpensier"/>
@@ -145,7 +142,7 @@
 
     <complexType name="Ingredient">
         <attribute name="ingredientName" type="string" use="required"/>
-        <attribute name="weight" type="integer" use="required">
+        <attribute name="weight" use="required">
             <simpleType>
                 <restriction base="integer">
                     <minInclusive value="0"/>
@@ -156,21 +153,21 @@
     </complexType>
 
     <complexType name="Value">
-        <attribute name="proteins" type="integer" use="required">
+        <attribute name="proteins" use="required">
             <simpleType>
                 <restriction base="integer">
                     <minInclusive value="0"/>
                 </restriction>
             </simpleType>
         </attribute>
-        <attribute name="fats" type="integer" use="required">
+        <attribute name="fats" use="required">
             <simpleType>
                 <restriction base="integer">
                     <minInclusive value="0"/>
                 </restriction>
             </simpleType>
         </attribute>
-        <attribute name="carbohydrates" type="integer" use="required">
+        <attribute name="carbohydrates" use="required">
             <simpleType>
                 <restriction base="integer">
                     <minInclusive value="0"/>

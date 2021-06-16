@@ -72,9 +72,6 @@ public class ParserTest {
         parser = new CandySaxParser();
         parser.parseCandies(fileName);
         Set<Candy> candies = parser.getCandies();
-        for (Candy candy : candies) {
-            System.out.println(candy.getTypes());
-        }
         Assert.assertEquals(candies.toArray()[0], testCandy);
     }
 
