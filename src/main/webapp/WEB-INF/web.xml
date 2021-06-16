@@ -5,13 +5,13 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>by.epamtc.HelloServlet</servlet-class>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>by.epamtc.servlet.MainServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/disp</url-pattern>
     </servlet-mapping>
 
 </web-app>

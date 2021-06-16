@@ -2,9 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Main</title>
+    <%@ include file="jsp/header.jsp" %>
 </head>
 <body>
-index
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+<%--        <input type="hidden" name="command" value="registration">--%>
+    </div>
+</div>
 </body>
 </html>
