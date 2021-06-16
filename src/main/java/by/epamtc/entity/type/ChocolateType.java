@@ -32,4 +32,14 @@ public class ChocolateType extends CandyType {
         this.withCoating = withCoating;
     }
 
+    @Override
+    public String toString() {
+        return "ChocolateType{" +
+                "kind=" + super.getKind() +
+                ", withFilling=" + withFilling +
+                ", unsweetened=" + unsweetened +
+                ", withCoating=" + withCoating +
+                '}';
+    }
+
 }

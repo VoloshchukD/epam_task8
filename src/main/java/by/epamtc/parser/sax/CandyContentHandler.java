@@ -8,6 +8,7 @@ import by.epamtc.entity.Value;
 import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
+import com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -38,8 +39,8 @@ public class CandyContentHandler extends DefaultHandler {
             currentCandy = new Candy();
         } else if (CandyXmlTag.CHOCOLATE.compareToTag(qName)) {
             ChocolateType currentType = new ChocolateType();
-            currentType.setUnsweetened(Boolean.parseBoolean(attributes.getValue(0)));
-            currentType.setWithFilling(Boolean.parseBoolean(attributes.getValue(1)));
+            currentType.setWithFilling(Boolean.parseBoolean(attributes.getValue(0)));
+            currentType.setUnsweetened(Boolean.parseBoolean(attributes.getValue(1)));
             currentType.setKind(attributes.getValue(2));
             currentCandy.getTypes().add(currentType);
         } else if (CandyXmlTag.IRIS.compareToTag(qName)) {
@@ -59,7 +60,7 @@ public class CandyContentHandler extends DefaultHandler {
             Ingredient ingredient = new Ingredient();
             ingredient.setName(attributes.getValue(0));
             ingredient.setWeight(Integer.parseInt(attributes.getValue(1)));
-            ingredient.setKind(attributes.getValue(2));
+            ingredient.setKind(attributes.getValue(2) == null ? "" : attributes.getValue(2));
             currentCandy.getIngredients().add(ingredient);
         } else if (CandyXmlTag.VALUE.toTagName().equals(qName)) {
             Value value = new Value();

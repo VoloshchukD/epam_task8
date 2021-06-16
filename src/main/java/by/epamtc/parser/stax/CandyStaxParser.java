@@ -19,6 +19,8 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CandyStaxParser extends AbstractCandyParser {
 
@@ -67,6 +69,14 @@ public class CandyStaxParser extends AbstractCandyParser {
                             break;
                         case ENERGY:
                             candy.setEnergy(Integer.parseInt(getXMLText(reader)));
+                            break;
+                        case PRODUCTION_DATE:
+                            DateTimeFormatter productionDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                            candy.setProductionDate(LocalDate.parse(getXMLText(reader), productionDateFormatter));
+                            break;
+                        case EXPIRATION_DATE:
+                            DateTimeFormatter expirationDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                            candy.setExpirationDate(LocalDate.parse(getXMLText(reader), expirationDateFormatter));
                             break;
                         case CHOCOLATE:
                             ChocolateType chocolateType = new ChocolateType();

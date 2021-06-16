@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/test"
+        xmlns:tns="http://www.example.com/test"
+        elementFormDefault="qualified">
+
+    <element name="candies">
+        <complexType>
+            <sequence>
+                <element name="candy" type="tns:Candy" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Candy">
+        <sequence>
+            <element name="candyName">
+                <simpleType>
+                    <restriction base="ID">
+                        <pattern value="[^\s]\D{1,25}[^\s]"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="energy" type="int">
+                <simpleType>
+                    <restriction base="int">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="productionDate" type="date"/>
+            <element name="expirationDate" type="date"/>
+            <element name="types">
+                <complexType>
+                    <sequence>
+                        <element ref="tns:Type" minOccurs="1" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ingredients">
+                <complexType>
+                    <sequence>
+                        <element name="ingredient" type="tns:Ingredient" minOccurs="1" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="value" type="tns:Value"/>
+            <element name="production" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="CandyType">
+        <attribute name="kind" type="string" use="required"/>
+    </complexType>
+
+    <complexType name="ChocolateType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="withFilling" type="boolean" use="required"/>
+                <attribute name="unsweetened" type="boolean" use="optional" default="false"/>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="dark"/>
+                            <enumeration value="milk"/>
+                            <enumeration value="white"/>
+                            <enumeration value="ruby"/>
+                            <enumeration value="vegan"/>
+                            <enumeration value="diabetic"/>
+                            <enumeration value="unsweetened"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="IrisType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="withFlavor" type="boolean" use="optional" default="false"/>
+                <attribute name="consistency" type="string" use="optional" default="semi-solid">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="cast_semi-solid"/>
+                            <enumeration value="replicated"/>
+                            <enumeration value="semi-solid"/>
+                            <enumeration value="soft"/>
+                            <enumeration value="viscous"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="toffee"/>
+                            <enumeration value="fudge"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="LollipopsType">
+        <complexContent>
+            <extension base="tns:CandyType">
+                <attribute name="onStick" type="boolean" use="required"/>
+                <attribute name="filling" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="bubblegum"/>
+                            <enumeration value="soft_candy"/>
+                            <enumeration value="none"/>
+                            <enumeration value="long"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="thingEmbedded" type="string" use="optional" default="none">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="insect"/>
+                            <enumeration value="flashing_light"/>
+                            <enumeration value="motorized_device"/>
+                            <enumeration value="none"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+                <attribute name="kind" type="string" use="required">
+                    <simpleType>
+                        <restriction base="element">
+                            <enumeration value="classic"/>
+                            <enumeration value="wrapped"/>
+                            <enumeration value="monpensier"/>
+                            <enumeration value="long"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Type" type="tns:CandyType" abstract="true"/>
+    <element name="chocolate" type="tns:ChocolateType" substitutionGroup="tns:Type"/>
+    <element name="iris" type="tns:IrisType" substitutionGroup="tns:Type"/>
+    <element name="lollipops" type="tns:LollipopsType" substitutionGroup="tns:Type"/>
+
+    <complexType name="Ingredient">
+        <attribute name="ingredientName" type="string" use="required"/>
+        <attribute name="weight" type="integer" use="required">
+            <simpleType>
+                <restriction base="integer">
+                    <minInclusive value="0"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="kind" type="string" use="optional" default="-"/>
+    </complexType>
+
+    <complexType name="Value">
+        <attribute name="proteins" type="integer" use="required">
+            <simpleType>
+                <restriction base="integer">
+                    <minInclusive value="0"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="fats" type="integer" use="required">
+            <simpleType>
+                <restriction base="integer">
+                    <minInclusive value="0"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="carbohydrates" type="integer" use="required">
+            <simpleType>
+                <restriction base="integer">
+                    <minInclusive value="0"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+
+</schema>
