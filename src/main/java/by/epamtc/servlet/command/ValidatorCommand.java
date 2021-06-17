@@ -11,6 +11,8 @@ public class ValidatorCommand implements Command  {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//            System.out.println(request.getMethod().equals("POST"));
+//            response.sendRedirect("http://localhost:8080/disp?command=main");
         request.getRequestDispatcher("/jsp/validator.jsp").forward(request, response);
     }
 

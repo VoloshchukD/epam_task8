@@ -11,8 +11,21 @@
         <h5 class="card-title">Card title</h5>
         <button type="button" class="btn btn-primary">Primary</button>
         <button type="button" class="btn btn-primary">Primary</button>
-<%--        <input type="hidden" name="command" value="registration">--%>
+        <%--        <input type="hidden" name="command" value="registration">--%>
     </div>
 </div>
+
+<h3>File Upload:</h3>
+Select a file to upload: <br/>
+<form method="POST" action="upload" enctype="multipart/form-data" >
+    File:
+    <input type="file" name="file" id="file" /> <br/>
+    Destination:
+    <input type="text" value="/tmp" name="destination"/>
+    </br>
+    <input type="submit" value="Upload" name="upload" id="upload" />
+</form>
+
+
 </body>
 </html>
