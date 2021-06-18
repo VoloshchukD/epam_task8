@@ -1,4 +1,4 @@
-package by.epamtc.entity;
+package by.epamtc.parser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

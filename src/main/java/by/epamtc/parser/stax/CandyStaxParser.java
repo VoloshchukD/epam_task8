@@ -7,7 +7,7 @@ import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.parser.AbstractCandyParser;
-import by.epamtc.entity.CandyXmlTag;
+import by.epamtc.parser.CandyXmlTag;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,9 +16,6 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -93,7 +90,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.KIND.toTagName()));
                             irisType.setConsistency(
                                     reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toTagName()));
-                            irisType.setFlavored(Boolean.parseBoolean(reader.getAttributeValue(null,
+                            irisType.setWithFlavor(Boolean.parseBoolean(reader.getAttributeValue(null,
                                     CandyXmlTag.WITH_FLAVOR.toTagName())));
                             candy.getTypes().add(irisType);
                             break;

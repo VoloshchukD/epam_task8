@@ -27,8 +27,8 @@ public class CandyParserFactory {
                 parser = new CandyDomParser();
                 break;
             default:
-//                throw new Exception();
-                //TODO const not present exception add
+                throw new EnumConstantNotPresentException(
+                        type.getDeclaringClass(), type.name());
         }
         return parser;
     }

@@ -3,7 +3,6 @@ package by.epamtc.entity;
 import by.epamtc.entity.type.CandyType;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +14,7 @@ public class Candy {
 
     private LocalDate productionDate;
 
-    private LocalDate  expirationDate;
+    private LocalDate expirationDate;
 
     private Set<CandyType> types;
 
@@ -103,7 +102,6 @@ public class Candy {
                 && (name == candy.name || (name != null && name.equals(candy.name)))
                 && (productionDate == candy.productionDate || (productionDate != null && productionDate.equals(candy.productionDate)))
                 && (expirationDate == candy.expirationDate || (expirationDate != null && expirationDate.equals(candy.expirationDate)))
-                && (production == candy.production || (production != null && production.equals(candy.production)))
                 && (types == candy.types || (types != null && types.equals(candy.types)))
                 && (ingredients == candy.ingredients || (ingredients != null && ingredients.equals(candy.ingredients)))
                 && (value == candy.value || (value != null && value.equals(candy.value)))
@@ -119,6 +117,8 @@ public class Candy {
         result = 17 * result + ((expirationDate != null) ? expirationDate.hashCode() : 0);
         result = 17 * result + ((value != null) ? value.hashCode() : 0);
         result = 17 * result + ((production != null) ? production.hashCode() : 0);
+        result = 17 * result + ((types != null) ? types.hashCode() : 0);
+        result = 17 * result + ((ingredients != null) ? ingredients.hashCode() : 0);
         if (types != null) {
             for (CandyType candyType : types) {
                 result += (candyType == null ? 0 : candyType.hashCode());
@@ -140,7 +140,7 @@ public class Candy {
                 ", productionDate=" + productionDate +
                 ", expirationDate=" + expirationDate +
                 ", types=" + types +
-                ", ingredient=" + ingredients +
+                ", ingredients=" + ingredients +
                 ", value=" + value +
                 ", production=" + production;
     }

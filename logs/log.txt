@@ -1,0 +1,2 @@
+2021-06-18 23:16:53 [main] FATAL by.epamtc.parser.sax.CandyErrorHandler- 20 : 7 - The element type "candyName" must be terminated by the matching end-tag "</candyName>".
+2021-06-18 23:16:53 [main] ERROR by.epamtc.validator.CandyValidator- Error while validating The element type "candyName" must be terminated by the matching end-tag "</candyName>".

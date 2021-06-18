@@ -27,10 +27,4 @@ public abstract class CandyType {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return getClass().getName() +
-                "@kind=" + kind;
-    }
-
 }

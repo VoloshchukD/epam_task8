@@ -8,7 +8,7 @@ import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.parser.AbstractCandyParser;
-import by.epamtc.entity.CandyXmlTag;
+import by.epamtc.parser.CandyXmlTag;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -112,14 +112,14 @@ public class CandyDomParser extends AbstractCandyParser {
         candyType.setKind(typeElement.getAttribute(CandyXmlTag.KIND.toTagName()));
         candyType.setUnsweetened(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.UNSWEETENED.toTagName())));
         candyType.setWithCoating(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_COATING.toTagName())));
-        candyType.setWithFilling(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.FILLING.toTagName())));
+        candyType.setWithFilling(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_FILLING.toTagName())));
         return candyType;
     }
 
     private CandyType buildIrisType(Element typeElement) {
         IrisType candyType = new IrisType();
         candyType.setKind(typeElement.getAttribute(CandyXmlTag.KIND.toTagName()));
-        candyType.setFlavored(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_FLAVOR.toTagName())));
+        candyType.setWithFlavor(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_FLAVOR.toTagName())));
         candyType.setConsistency(typeElement.getAttribute(CandyXmlTag.CONSISTENCY.toTagName()));
         return candyType;
     }

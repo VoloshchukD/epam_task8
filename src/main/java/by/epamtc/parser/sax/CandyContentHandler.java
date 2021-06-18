@@ -1,14 +1,13 @@
 package by.epamtc.parser.sax;
 
 import by.epamtc.entity.Candy;
-import by.epamtc.entity.CandyXmlTag;
-import by.epamtc.entity.type.CandyType;
+import by.epamtc.exception.NoSuchUnitException;
+import by.epamtc.parser.CandyXmlTag;
 import by.epamtc.entity.Ingredient;
 import by.epamtc.entity.Value;
 import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
-import com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -45,7 +44,7 @@ public class CandyContentHandler extends DefaultHandler {
             currentCandy.getTypes().add(currentType);
         } else if (CandyXmlTag.IRIS.compareToTag(qName)) {
             IrisType currentType = new IrisType();
-            currentType.setFlavored(Boolean.parseBoolean(attributes.getValue(0)));
+            currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setConsistency(attributes.getValue(1));
             currentType.setKind(attributes.getValue(2));
             currentCandy.getTypes().add(currentType);
@@ -105,10 +104,10 @@ public class CandyContentHandler extends DefaultHandler {
                 case PRODUCTION:
                     currentCandy.setProduction(data);
                     break;
-                default:
-//              TODO  default:
+//      TODO          default:
 //                    throw new EnumConstantNotPresentException(
 //                            currentXmlTag.getDeclaringClass(), currentXmlTag.name());
+
             }
         }
         currentXmlTag = null;
