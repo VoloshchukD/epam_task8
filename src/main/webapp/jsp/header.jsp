@@ -5,10 +5,8 @@
 </head>
 <body>
 <div>
-    <a href="http://localhost:8080/disp?command=validator">Validation</a>
-</div>
-<div>
-    <a href="http://localhost:8080/disp?command=parser">Parsing</a>
+    <a href="disp?command=validator">Validation</a> <br/>
+    <a href="disp?command=parser">Parsing</a>
 </div>
 </body>
 </html>
