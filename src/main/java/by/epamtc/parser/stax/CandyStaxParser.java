@@ -19,6 +19,7 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -33,11 +34,9 @@ public class CandyStaxParser extends AbstractCandyParser {
     }
 
     @Override
-    public void parseCandies(String fileName) {
+    public void parseCandies(InputStream inputStream) {
         //TODO file name null
-        File file = new File(fileName);
         try {
-            FileInputStream inputStream = new FileInputStream(file);
             XMLStreamReader reader = inputFactory.createXMLStreamReader(inputStream);
             while (reader.hasNext()) {
                 int type = reader.next();
@@ -49,9 +48,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                     }
                 }
             }
-        } catch (FileNotFoundException e) {
-            logger.log(Level.ERROR, "FileNotFoundException while Stax parsing " + e.getMessage());
-        } catch (XMLStreamException e) {
+        }  catch (XMLStreamException e) {
             logger.log(Level.ERROR, "Error while Stax parsing " + e.getMessage());
         }
     }

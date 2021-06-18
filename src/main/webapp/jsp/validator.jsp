@@ -5,13 +5,14 @@
     <%@ include file="header.jsp" %>
 </head>
 <body>
-<form action="disp" method="post">
-    <input type="hidden" name="command" value="validator"/>
-    Attach schema file:<br/>
-    <input type="file" name="schema"/><br/>
-    Attach target file:<br/>
-    <input type="file" name="target"/><br/>
-    <input type="submit" value="Validate"/><br/>
+<h3>Validate file</h3>
+<form method="POST" action="disp" enctype="multipart/form-data" >
+    <input type = "hidden" name = "command" value = "validator" id="command"/>
+    Target File:
+    <input type="file" name="target" id="target" /> <br/>
+    Schema File:
+    <input type="file" name="schema" id="schema" /> <br/>
+    <input type="submit" value="Validate" name="validate" id="validate" />
 </form>
 </body>
 </html>

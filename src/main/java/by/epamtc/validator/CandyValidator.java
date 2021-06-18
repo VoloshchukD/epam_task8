@@ -14,6 +14,7 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class CandyValidator {
 
@@ -21,13 +22,14 @@ public class CandyValidator {
 
     private static final Logger logger = LogManager.getLogger();
 
-    public static boolean validate(File targetFile, File schemaFile) {
+    public static boolean validate(InputStream targetInputStream, InputStream schemaInputStream) {
         boolean valid = true;
         SchemaFactory factory = SchemaFactory.newInstance(language);
         try {
-            Schema schema = factory.newSchema(schemaFile);
+            Source schemaSource = new StreamSource(schemaInputStream);
+            Schema schema = factory.newSchema(schemaSource);
             Validator validator = schema.newValidator();
-            Source source = new StreamSource(targetFile);
+            Source source = new StreamSource(targetInputStream);
             validator.setErrorHandler(new CandyErrorHandler());
             validator.validate(source);
         } catch (SAXException | IOException e) {

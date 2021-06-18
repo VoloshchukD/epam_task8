@@ -6,38 +6,45 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 
 public class ValidatorTest {
 
-    private File schemaFile;
+    private FileInputStream schemaInputStream;
 
-    private File targetFile;
+    private FileInputStream targetInputStream;
 
-    private File wrongTargetFile;
+    private FileInputStream wrongTargetInputStream;
 
     @Before
-    public void setUpFileName() {
+    public void setUpFileName() throws FileNotFoundException {
         ClassLoader loader = ValidatorTest.class.getClassLoader();
         URL schemaUrl = loader.getResource("test.xsd");
         String schemaFileName = new File(schemaUrl.getFile()).getAbsolutePath();
-        schemaFile = new File(schemaFileName);
+        File schemaFile = new File(schemaFileName);
+        schemaInputStream = new FileInputStream(schemaFile);
+
         URL targetFileUrl = loader.getResource("test.xml");
         String targetFileName = new File(targetFileUrl.getFile()).getAbsolutePath();
-        targetFile = new File(targetFileName);
+        File targetFile = new File(targetFileName);
+        targetInputStream = new FileInputStream(targetFile);
+
         URL wrongTargetFileUrl = loader.getResource("wrong.xml");
         String wrongTargetFileName = new File(wrongTargetFileUrl.getFile()).getAbsolutePath();
-        wrongTargetFile = new File(wrongTargetFileName);
+        File wrongTargetFile = new File(wrongTargetFileName);
+        wrongTargetInputStream = new FileInputStream(wrongTargetFile);
     }
 
     @Test
     public void testCandyValidator() {
-        Assert.assertTrue(CandyValidator.validate(targetFile, schemaFile));
+        Assert.assertTrue(CandyValidator.validate(targetInputStream, schemaInputStream));
     }
 
     @Test
     public void testCandyValidatorException() {
-        Assert.assertFalse(CandyValidator.validate(wrongTargetFile, schemaFile));
+        Assert.assertFalse(CandyValidator.validate(wrongTargetInputStream, schemaInputStream));
     }
 
 }

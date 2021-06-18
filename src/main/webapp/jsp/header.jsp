@@ -5,14 +5,10 @@
 </head>
 <body>
 <div>
-    <ul>
-        <li>
-            <a href="http://localhost:8080/disp?command=validator">Validation</a>
-        </li>
-        <li>
-            <a href="http://localhost:8080/disp?command=parser">Parsing</a>
-        </li>
-    </ul>
+    <a href="http://localhost:8080/disp?command=validator">Validation</a>
+</div>
+<div>
+    <a href="http://localhost:8080/disp?command=parser">Parsing</a>
 </div>
 </body>
 </html>

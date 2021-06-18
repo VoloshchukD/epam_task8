@@ -9,10 +9,14 @@ import by.epamtc.parser.dom.CandyDomParser;
 import by.epamtc.parser.sax.CandySaxParser;
 import by.epamtc.parser.stax.CandyStaxParser;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Set;
@@ -23,13 +27,14 @@ public class ParserTest {
 
     private static Candy testCandy;
 
-    private static String fileName;
+    private static File file;
 
     @BeforeClass
-    public static void setUpFileName() {
+    public static void setUpFileName() throws FileNotFoundException {
         ClassLoader loader = ParserTest.class.getClassLoader();
         URL resource = loader.getResource("test.xml");
-        fileName = new File(resource.getFile()).getAbsolutePath();
+        file = new File(resource.getFile());
+
     }
 
     @BeforeClass
@@ -68,25 +73,28 @@ public class ParserTest {
     }
 
     @Test
-    public void testSaxParser() {
+    public void testSaxParser() throws FileNotFoundException {
+        InputStream inputStream = new FileInputStream(file);
         parser = new CandySaxParser();
-        parser.parseCandies(fileName);
+        parser.parseCandies(inputStream);
         Set<Candy> candies = parser.getCandies();
         Assert.assertEquals(candies.toArray()[0], testCandy);
     }
 
     @Test
-    public void testStaxParser() {
+    public void testStaxParser() throws FileNotFoundException {
+        InputStream inputStream = new FileInputStream(file);
         parser = new CandyStaxParser();
-        parser.parseCandies(fileName);
+        parser.parseCandies(inputStream);
         Set<Candy> candies = parser.getCandies();
         Assert.assertEquals(candies.toArray()[0], testCandy);
     }
 
     @Test
-    public void testDomParser() {
+    public void testDomParser() throws FileNotFoundException {
+        InputStream inputStream = new FileInputStream(file);
         parser = new CandyDomParser();
-        parser.parseCandies(fileName);
+        parser.parseCandies(inputStream);
         Set<Candy> candies = parser.getCandies();
         Assert.assertEquals(candies.toArray()[0], testCandy);
     }

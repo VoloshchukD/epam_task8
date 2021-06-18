@@ -22,6 +22,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -41,10 +42,10 @@ public class CandyDomParser extends AbstractCandyParser {
     }
 
     @Override
-    public void parseCandies(String fileName) {
+    public void parseCandies(InputStream inputStream) {
         //not null
         try {
-            Document document = docBuilder.parse(fileName);
+            Document document = docBuilder.parse(inputStream);
             Element rootElement = document.getDocumentElement();
             NodeList candiesList = rootElement.getElementsByTagName(
                     CandyXmlTag.CANDY.toTagName());

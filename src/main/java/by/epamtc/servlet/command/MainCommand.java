@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class MainCommand implements Command  {
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
+
 }

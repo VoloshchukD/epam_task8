@@ -4,6 +4,7 @@ import by.epamtc.parser.AbstractCandyParser;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
@@ -11,6 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class CandySaxParser extends AbstractCandyParser {
 
@@ -36,9 +38,10 @@ public class CandySaxParser extends AbstractCandyParser {
     }
 
     @Override
-    public void parseCandies(String fileName) {
+    public void parseCandies(InputStream inputStream) {
         try {
-            reader.parse(fileName);
+            InputSource inputSource = new InputSource(inputStream);
+            reader.parse(inputSource);
         } catch (IOException e) {
             logger.log(Level.ERROR, "IOException while SAX parsing " + e.getMessage());
         } catch (SAXException e) {
