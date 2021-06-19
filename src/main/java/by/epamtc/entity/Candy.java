@@ -62,7 +62,23 @@ public class Candy {
     }
 
     public Set<CandyType> getTypes() {
-        return types;
+        return new HashSet<>(types);
+    }
+
+    public boolean addType(CandyType candyType) {
+        boolean isAdded = false;
+        if (types != null) {
+            isAdded = types.add(candyType);
+        }
+        return isAdded;
+    }
+
+    public boolean removeType(CandyType candyType) {
+        boolean isRemoved = false;
+        if (types != null) {
+            isRemoved = types.remove(candyType);
+        }
+        return isRemoved;
     }
 
     public void setTypes(Set<CandyType> types) {
@@ -70,7 +86,23 @@ public class Candy {
     }
 
     public Set<Ingredient> getIngredients() {
-        return ingredients;
+        return new HashSet<>(ingredients);
+    }
+
+    public boolean addIngredient(Ingredient ingredient) {
+        boolean isAdded = false;
+        if (ingredients != null) {
+            isAdded = ingredients.add(ingredient);
+        }
+        return isAdded;
+    }
+
+    public boolean removeIngredient(Ingredient ingredient) {
+        boolean isRemoved = false;
+        if (ingredients != null) {
+            isRemoved = ingredients.remove(ingredient);
+        }
+        return isRemoved;
     }
 
     public void setIngredients(Set<Ingredient> ingredients) {

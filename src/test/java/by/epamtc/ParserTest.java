@@ -48,7 +48,7 @@ public class ParserTest {
         type.setKind("milk");
         type.setWithFilling(true);
         type.setUnsweetened(false);
-        testCandy.getTypes().add(type);
+        testCandy.addType(type);
         Ingredient ingredient = new Ingredient();
         ingredient.setName("sugar");
         ingredient.setWeight(112);
@@ -61,9 +61,9 @@ public class ParserTest {
         ingredient3.setName("milk");
         ingredient3.setWeight(33);
         ingredient3.setKind("powdered");
-        testCandy.getIngredients().add(ingredient);
-        testCandy.getIngredients().add(ingredient2);
-        testCandy.getIngredients().add(ingredient3);
+        testCandy.addIngredient(ingredient);
+        testCandy.addIngredient(ingredient2);
+        testCandy.addIngredient(ingredient3);
         Value value = new Value();
         value.setProteins(10);
         value.setFats(13);

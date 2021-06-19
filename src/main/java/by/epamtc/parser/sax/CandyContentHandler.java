@@ -41,26 +41,26 @@ public class CandyContentHandler extends DefaultHandler {
             currentType.setWithFilling(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setUnsweetened(Boolean.parseBoolean(attributes.getValue(1)));
             currentType.setKind(attributes.getValue(2));
-            currentCandy.getTypes().add(currentType);
+            currentCandy.addType(currentType);
         } else if (CandyXmlTag.IRIS.compareToTag(qName)) {
             IrisType currentType = new IrisType();
             currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setConsistency(attributes.getValue(1));
             currentType.setKind(attributes.getValue(2));
-            currentCandy.getTypes().add(currentType);
+            currentCandy.addType(currentType);
         } else if (CandyXmlTag.LOLLIPOPS.compareToTag(qName)) {
             LollipopsType currentType = new LollipopsType();
             currentType.setOnStick(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setFilling(attributes.getValue(1));
             currentType.setThingsEmbedded(attributes.getValue(2));
             currentType.setKind(attributes.getValue(3));
-            currentCandy.getTypes().add(currentType);
+            currentCandy.addType(currentType);
         } else if (CandyXmlTag.INGREDIENT.toTagName().equals(qName)) {
             Ingredient ingredient = new Ingredient();
             ingredient.setName(attributes.getValue(0));
             ingredient.setWeight(Integer.parseInt(attributes.getValue(1)));
             ingredient.setKind(attributes.getValue(2) == null ? "" : attributes.getValue(2));
-            currentCandy.getIngredients().add(ingredient);
+            currentCandy.addIngredient(ingredient);
         } else if (CandyXmlTag.VALUE.toTagName().equals(qName)) {
             Value value = new Value();
             value.setProteins(Integer.parseInt(attributes.getValue(0)));

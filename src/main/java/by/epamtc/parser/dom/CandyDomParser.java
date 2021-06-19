@@ -81,20 +81,20 @@ public class CandyDomParser extends AbstractCandyParser {
 
         if (chocolateTypesElement != null) {
             CandyType candyType = buildChocolateType(chocolateTypesElement);
-            candy.getTypes().add(candyType);
+            candy.addType(candyType);
         } else if (irisTypesElement != null) {
             CandyType candyType = buildIrisType(irisTypesElement);
-            candy.getTypes().add(candyType);
+            candy.addType(candyType);
         } else if (lollipopsTypesElement != null) {
             CandyType candyType = buildLollipopsType(lollipopsTypesElement);
-            candy.getTypes().add(candyType);
+            candy.addType(candyType);
         }
 
         NodeList ingredientsList = candyElement.getElementsByTagName(CandyXmlTag.INGREDIENT.toTagName());
         for (int i = 0; i < ingredientsList.getLength(); i++) {
             Element currentElement = (Element) ingredientsList.item(i);
             Ingredient ingredient = buildIngredient(currentElement);
-            candy.getIngredients().add(ingredient);
+            candy.addIngredient(ingredient);
         }
 
         Element valuElement = (Element) candyElement.getElementsByTagName(CandyXmlTag.VALUE.toTagName()).item(0);

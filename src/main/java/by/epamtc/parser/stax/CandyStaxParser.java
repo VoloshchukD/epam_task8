@@ -45,7 +45,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                     }
                 }
             }
-        }  catch (XMLStreamException e) {
+        } catch (XMLStreamException e) {
             logger.log(Level.ERROR, "Error while Stax parsing " + e.getMessage());
         }
     }
@@ -82,7 +82,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.UNSWEETENED.toTagName())));
                             chocolateType.setWithCoating(Boolean.parseBoolean(reader.getAttributeValue(null,
                                     CandyXmlTag.WITH_COATING.toTagName())));
-                            candy.getTypes().add(chocolateType);
+                            candy.addType(chocolateType);
                             break;
                         case IRIS:
                             IrisType irisType = new IrisType();
@@ -92,7 +92,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toTagName()));
                             irisType.setWithFlavor(Boolean.parseBoolean(reader.getAttributeValue(null,
                                     CandyXmlTag.WITH_FLAVOR.toTagName())));
-                            candy.getTypes().add(irisType);
+                            candy.addType(irisType);
                             break;
                         case LOLLIPOPS:
                             LollipopsType lollipopsType = new LollipopsType();
@@ -104,7 +104,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.FILLING.toTagName()));
                             lollipopsType.setOnStick(Boolean.parseBoolean(reader.getAttributeValue(null,
                                     CandyXmlTag.ON_STICK.toTagName())));
-                            candy.getTypes().add(lollipopsType);
+                            candy.addType(lollipopsType);
                             break;
                         case INGREDIENT:
                             Ingredient ingredient = new Ingredient();
@@ -114,7 +114,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.WEIGHT.toTagName())));
                             ingredient.setKind(reader.getAttributeValue(null,
                                     CandyXmlTag.KIND.toTagName()));
-                            candy.getIngredients().add(ingredient);
+                            candy.addIngredient(ingredient);
                             break;
                         case VALUE:
                             Value value = new Value();
