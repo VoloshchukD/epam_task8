@@ -16,7 +16,7 @@
             <element name="candyName">
                 <simpleType>
                     <restriction base="ID">
-                        <pattern value="[^\s]\D{1,25}[^\s]"/>
+                        <pattern value="(\D{1,25})"/>
                     </restriction>
                 </simpleType>
             </element>

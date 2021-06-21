@@ -18,5 +18,206 @@
         <value proteins="10" fats="13" carbohydrates="44"/>
         <production>Mars.Inc</production>
     </candy>
+    <candy>
+        <candyName>Meller</candyName>
+        <energy>410</energy>
+        <productionDate>2020-08-10</productionDate>
+        <expirationDate>2022-09-15</expirationDate>
+        <types>
+            <iris kind="fudge" consistency="soft" withFlavor="true"/>
+            <chocolate withFilling="false" unsweetened="false" kind="dark"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="syrup" weight="70" kind="glucose"/>
+            <ingredient ingredientName="chocolate" weight="30" kind="dark"/>
+            <ingredient ingredientName="flavoring" weight="3" kind="coffee"/>
+        </ingredients>
+        <value proteins="3" fats="9" carbohydrates="79"/>
+        <production>Perfetti-Van-Melle</production>
+    </candy>
+    <candy>
+        <candyName>Grand-toffy</candyName>
+        <energy>1000</energy>
+        <productionDate>2021-01-05</productionDate>
+        <expirationDate>2021-12-05</expirationDate>
+        <types>
+            <chocolate withFilling="true" unsweetened="false" kind="milk"/>
+            <iris kind="toffee" withFlavor="true" consistency="viscous"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="112" kind="granulated"/>
+            <ingredient ingredientName="butter" weight="83" kind="cocoa"/>
+            <ingredient ingredientName="emulsifier" weight="35" kind="soy"/>
+            <ingredient ingredientName="vanillin" weight="25" kind="classic"/>
+            <ingredient ingredientName="milk" weight="35" kind="whole"/>
+        </ingredients>
+        <value proteins="4" fats="21" carbohydrates="62"/>
+        <production>Roshen</production>
+    </candy>
+    <candy>
+        <candyName>Lolli-pops</candyName>
+        <energy>390</energy>
+        <productionDate>2021-06-21</productionDate>
+        <expirationDate>2022-09-30</expirationDate>
+        <types>
+            <lollipops onStick="true" filling="bubblegum" kind="classic"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="49" kind="granulated"/>
+            <ingredient ingredientName="syrup" weight="12" kind="fruit"/>
+            <ingredient ingredientName="regulator" weight="3" kind="acidity"/>
+            <ingredient ingredientName="acid" weight="2" kind="lactic"/>
+            <ingredient ingredientName="acid" weight="4" kind="citric"/>
+            <ingredient ingredientName="flavoring" weight="5" kind="fruit"/>
+        </ingredients>
+        <value proteins="0" fats="0" carbohydrates="96"/>
+        <production>Roshen</production>
+    </candy>
+    <candy>
+        <candyName>Kinder-chocolate</candyName>
+        <energy>390</energy>
+        <productionDate>2021-06-21</productionDate>
+        <expirationDate>2022-09-30</expirationDate>
+        <types>
+            <chocolate withFilling="true" unsweetened="false" kind="milk"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="15" kind="white"/>
+            <ingredient ingredientName="butter" weight="9" kind="cocoa"/>
+            <ingredient ingredientName="fat" weight="3" kind="vegetable"/>
+            <ingredient ingredientName="liquor" weight="2" kind="cocoa"/>
+            <ingredient ingredientName="cereals" weight="28" kind="puffed"/>
+            <ingredient ingredientName="milk" weight="19" kind="skimmed"/>
+            <ingredient ingredientName="emulsifier" weight="1" kind="lecithins"/>
+        </ingredients>
+        <value proteins="2" fats="7" carbohydrates="12"/>
+        <production>Ferrero</production>
+    </candy>
+    <candy>
+        <candyName>Schogetten</candyName>
+        <energy>390</energy>
+        <productionDate>2021-06-21</productionDate>
+        <expirationDate>2022-09-30</expirationDate>
+        <types>
+            <chocolate withFilling="false" unsweetened="true" kind="milk"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="lactose" weight="15" kind="natural"/>
+            <ingredient ingredientName="butter" weight="9" kind="cocoa"/>
+            <ingredient ingredientName="fat" weight="4" kind="milk"/>
+            <ingredient ingredientName="milk" weight="2" kind="powdered"/>
+            <ingredient ingredientName="milk" weight="17" kind="skimmed"/>
+            <ingredient ingredientName="mass" weight="8" kind="cocoa"/>
+        </ingredients>
+        <value proteins="6" fats="35" carbohydrates="52"/>
+        <production>Trumpf</production>
+    </candy>
+    <candy>
+        <candyName>Milka</candyName>
+        <energy>390</energy>
+        <productionDate>2021-06-21</productionDate>
+        <expirationDate>2022-09-30</expirationDate>
+        <types>
+            <chocolate withFilling="true" unsweetened="true" kind="white"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="15" kind="caramelized"/>
+            <ingredient ingredientName="peanuts" weight="23" kind="roasted"/>
+            <ingredient ingredientName="butter" weight="12" kind="cocoa"/>
+            <ingredient ingredientName="syrup" weight="7" kind="glucose"/>
+            <ingredient ingredientName="mass" weight="19" kind="cocoa"/>
+            <ingredient ingredientName="paste" weight="6" kind="peanut"/>
+            <ingredient ingredientName="fat" weight="12" kind="milk"/>
+            <ingredient ingredientName="milk" weight="17" kind="skimmed"/>
+            <ingredient ingredientName="agent" weight="8" kind="glycerin"/>
+            <ingredient ingredientName="paste" weight="4" kind="hazelnuts"/>
+        </ingredients>
+        <value proteins="9" fats="33" carbohydrates="51"/>
+        <production>Mondelez-International</production>
+    </candy>
+    <candy>
+        <candyName>Ferrero-Rocher</candyName>
+        <energy>2532</energy>
+        <productionDate>2020-07-13</productionDate>
+        <expirationDate>2022-10-16</expirationDate>
+        <types>
+            <chocolate withFilling="true" unsweetened="false" kind="white"/>
+            <iris kind="fudge" consistency="semi-solid" withFlavor="false"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="28" kind="white"/>
+            <ingredient ingredientName="butter" weight="19" kind="cocoa"/>
+            <ingredient ingredientName="fat" weight="3" kind="salt"/>
+            <ingredient ingredientName="mass" weight="24" kind="cocoa"/>
+            <ingredient ingredientName="powder" weight="1" kind="cocoa"/>
+            <ingredient ingredientName="powder" weight="2" kind="whey"/>
+            <ingredient ingredientName="milk" weight="12" kind="skimmed"/>
+            <ingredient ingredientName="bicarbonate" weight="2" kind="sodium"/>
+            <ingredient ingredientName="powder" weight="2" kind="baking"/>
+        </ingredients>
+        <value proteins="6" fats="42" carbohydrates="44"/>
+        <production>Ferrero</production>
+    </candy>
+    <candy>
+        <candyName>Toblerone</candyName>
+        <energy>2213</energy>
+        <productionDate>2019-06-11</productionDate>
+        <expirationDate>2020-02-12</expirationDate>
+        <types>
+            <chocolate withFilling="false" unsweetened="false" kind="dark"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="25" kind="white"/>
+            <ingredient ingredientName="milk" weight="15" kind="whole"/>
+            <ingredient ingredientName="fat" weight="14" kind="milk"/>
+            <ingredient ingredientName="honey" weight="11" kind="soft"/>
+            <ingredient ingredientName="syrup" weight="9" kind="glucose"/>
+            <ingredient ingredientName="emulsifier" weight="5" kind="soy"/>
+            <ingredient ingredientName="white" weight="2" kind="egg"/>
+            <ingredient ingredientName="salt" weight="1" kind="rock"/>
+        </ingredients>
+        <value proteins="6" fats="30" carbohydrates="57"/>
+        <production>Mondelez-International</production>
+    </candy>
+    <candy>
+        <candyName>Halls</candyName>
+        <energy>1610</energy>
+        <productionDate>2020-01-01</productionDate>
+        <expirationDate>2025-10-01</expirationDate>
+        <types>
+            <lollipops kind="classic" filling="none" onStick="false" thingEmbedded="none"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="3" kind="white"/>
+            <ingredient ingredientName="menthol" weight="1" kind="classic"/>
+            <ingredient ingredientName="honey" weight="1" kind="soft"/>
+            <ingredient ingredientName="syrup" weight="2" kind="maltose"/>
+            <ingredient ingredientName="regulator" weight="1" kind="acidity"/>
+            <ingredient ingredientName="flavor" weight="1" kind="natural"/>
+            <ingredient ingredientName="oil" weight="1" kind="eucalyptus"/>
+        </ingredients>
+        <value proteins="0" fats="0" carbohydrates="94"/>
+        <production>Mondelez-International</production>
+    </candy>
+    <candy>
+        <candyName>Chupa-chups</candyName>
+        <energy>1550</energy>
+        <productionDate>2020-02-01</productionDate>
+        <expirationDate>2023-04-01</expirationDate>
+        <types>
+            <lollipops kind="wrapped" filling="bubblegum" onStick="true" thingEmbedded="none"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="6" kind="white"/>
+            <ingredient ingredientName="acid" weight="2" kind="citric"/>
+            <ingredient ingredientName="honey" weight="3" kind="soft"/>
+            <ingredient ingredientName="dye" weight="2" kind="curcumin"/>
+            <ingredient ingredientName="dye" weight="2" kind="carmine"/>
+            <ingredient ingredientName="beetroot" weight="1" kind="red"/>
+            <ingredient ingredientName="agent" weight="1" kind="curcumin"/>
+        </ingredients>
+        <value proteins="0" fats="0" carbohydrates="94"/>
+        <production>Chupa-chups</production>
+    </candy>
 
 </candies>
