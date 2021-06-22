@@ -32,7 +32,6 @@ public class CandyStaxParser extends AbstractCandyParser {
 
     @Override
     public void parseCandies(InputStream inputStream) {
-        //TODO file name null
         try {
             XMLStreamReader reader = inputFactory.createXMLStreamReader(inputStream);
             while (reader.hasNext()) {

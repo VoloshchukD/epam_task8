@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 public enum CandyXmlTag {
 
     CANDIES,
+    TYPES,
     CANDY,
     CANDY_NAME,
     ENERGY,
     PRODUCTION_DATE,
     EXPIRATION_DATE,
-    TYPES,
     CHOCOLATE,
     IRIS,
     LOLLIPOPS,
@@ -42,8 +42,7 @@ public enum CandyXmlTag {
     private static final String MAKE_TAG_NAME_REGEX = "(.+)[_](.)(.*)";
 
     public boolean compareToTag(String tag) {
-        //TODO tag == null
-        String valueAsString = this.toString().replaceAll(ENUM_WORDS_SEPARATOR, ""); //TODO add regex
+        String valueAsString = this.toString().replaceAll(ENUM_WORDS_SEPARATOR, "");
         String upperCaseTag = tag.toUpperCase();
         return valueAsString.equals(upperCaseTag);
     }

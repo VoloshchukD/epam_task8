@@ -1,7 +1,6 @@
 package by.epamtc.parser.sax;
 
 import by.epamtc.entity.Candy;
-import by.epamtc.exception.NoSuchUnitException;
 import by.epamtc.parser.CandyXmlTag;
 import by.epamtc.entity.Ingredient;
 import by.epamtc.entity.Value;
@@ -9,7 +8,6 @@ import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.time.LocalDate;
@@ -25,7 +23,7 @@ public class CandyContentHandler extends DefaultHandler {
     private CandyXmlTag currentXmlTag;
 
     public CandyContentHandler() {
-        candies = new HashSet<Candy>();
+        candies = new HashSet<>();
     }
 
     public Set<Candy> getCandies() {
@@ -75,7 +73,7 @@ public class CandyContentHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(String uri, String localName, String qName) {
         if (CandyXmlTag.CANDY.toTagName().equals(qName)) {
             candies.add(currentCandy);
         }
@@ -104,10 +102,6 @@ public class CandyContentHandler extends DefaultHandler {
                 case PRODUCTION:
                     currentCandy.setProduction(data);
                     break;
-//      TODO          default:
-//                    throw new EnumConstantNotPresentException(
-//                            currentXmlTag.getDeclaringClass(), currentXmlTag.name());
-
             }
         }
         currentXmlTag = null;

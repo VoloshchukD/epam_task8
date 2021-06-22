@@ -43,7 +43,6 @@ public class CandyDomParser extends AbstractCandyParser {
 
     @Override
     public void parseCandies(InputStream inputStream) {
-        //not null
         try {
             Document document = docBuilder.parse(inputStream);
             Element rootElement = document.getDocumentElement();

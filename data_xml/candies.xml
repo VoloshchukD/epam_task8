@@ -113,6 +113,26 @@
         <production>Trumpf</production>
     </candy>
     <candy>
+        <candyName>Halls</candyName>
+        <energy>1610</energy>
+        <productionDate>2020-01-01</productionDate>
+        <expirationDate>2025-10-01</expirationDate>
+        <types>
+            <lollipops kind="classic" filling="none" onStick="false" thingEmbedded="none"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="3" kind="white"/>
+            <ingredient ingredientName="menthol" weight="1" kind="classic"/>
+            <ingredient ingredientName="honey" weight="1" kind="soft"/>
+            <ingredient ingredientName="syrup" weight="2" kind="maltose"/>
+            <ingredient ingredientName="regulator" weight="1" kind="acidity"/>
+            <ingredient ingredientName="flavor" weight="1" kind="natural"/>
+            <ingredient ingredientName="oil" weight="1" kind="eucalyptus"/>
+        </ingredients>
+        <value proteins="0" fats="0" carbohydrates="94"/>
+        <production>Mondelez-International</production>
+    </candy>
+    <candy>
         <candyName>Milka</candyName>
         <energy>390</energy>
         <productionDate>2021-06-21</productionDate>
@@ -180,24 +200,23 @@
         <production>Mondelez-International</production>
     </candy>
     <candy>
-        <candyName>Halls</candyName>
-        <energy>1610</energy>
-        <productionDate>2020-01-01</productionDate>
-        <expirationDate>2025-10-01</expirationDate>
+        <candyName>Nestle</candyName>
+        <energy>2981</energy>
+        <productionDate>2021-06-09</productionDate>
+        <expirationDate>2022-04-17</expirationDate>
         <types>
-            <lollipops kind="classic" filling="none" onStick="false" thingEmbedded="none"/>
+            <chocolate withFilling="false" kind="ruby" unsweetened="false"/>
         </types>
         <ingredients>
-            <ingredient ingredientName="sugar" weight="3" kind="white"/>
-            <ingredient ingredientName="menthol" weight="1" kind="classic"/>
-            <ingredient ingredientName="honey" weight="1" kind="soft"/>
-            <ingredient ingredientName="syrup" weight="2" kind="maltose"/>
-            <ingredient ingredientName="regulator" weight="1" kind="acidity"/>
-            <ingredient ingredientName="flavor" weight="1" kind="natural"/>
-            <ingredient ingredientName="oil" weight="1" kind="eucalyptus"/>
+            <ingredient ingredientName="sugar" weight="31" kind="granulated"/>
+            <ingredient ingredientName="fat" weight="14" kind="milk"/>
+            <ingredient ingredientName="milk" weight="8" kind="dry"/>
+            <ingredient ingredientName="starch" weight="1" kind="tapioca"/>
+            <ingredient ingredientName="crumbs" weight="2" kind="biscuit"/>
+            <ingredient ingredientName="carbonate" weight="1" kind="sodium"/>
         </ingredients>
-        <value proteins="0" fats="0" carbohydrates="94"/>
-        <production>Mondelez-International</production>
+        <value proteins="7" fats="29" carbohydrates="60"/>
+        <production>Nestle</production>
     </candy>
     <candy>
         <candyName>Chupa-chups</candyName>
@@ -219,5 +238,83 @@
         <value proteins="0" fats="0" carbohydrates="94"/>
         <production>Chupa-chups</production>
     </candy>
+    <candy>
+        <candyName>Rikki</candyName>
+        <energy>2981</energy>
+        <productionDate>2021-05-18</productionDate>
+        <expirationDate>2024-02-21</expirationDate>
+        <types>
+            <chocolate withFilling="true" kind="diabetic" unsweetened="true"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="fat" weight="18" kind="vegetable"/>
+            <ingredient ingredientName="milk" weight="16" kind="dry"/>
+            <ingredient ingredientName="liquor" weight="13" kind="cocoa"/>
+            <ingredient ingredientName="butter" weight="12" kind="cocoa"/>
+            <ingredient ingredientName="flavoring" weight="2" kind="vanillin"/>
+        </ingredients>
+        <value proteins="3" fats="32" carbohydrates="58"/>
+        <production>Kruger</production>
+    </candy>
+    <candy>
+        <candyName>Extra</candyName>
+        <energy>3380</energy>
+        <productionDate>2021-07-04</productionDate>
+        <expirationDate>2022-09-22</expirationDate>
+        <types>
+            <lollipops kind="long" filling="soft_candy" onStick="true" thingEmbedded="insect"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="35" kind="granulated"/>
+            <ingredient ingredientName="syrup" weight="10" kind="caramel"/>
+            <ingredient ingredientName="acid" weight="4" kind="citric"/>
+            <ingredient ingredientName="flavor" weight="1" kind="raspberry"/>
+            <ingredient ingredientName="flavor" weight="1" kind="apple"/>
+            <ingredient ingredientName="dyes" weight="1" kind="carmine"/>
+        </ingredients>
+        <value proteins="0" fats="0" carbohydrates="98"/>
+        <production>Drop.Inc</production>
+    </candy>
+    <candy>
+        <candyName>MilkyWay</candyName>
+        <energy>1897</energy>
+        <productionDate>2021-03-01</productionDate>
+        <expirationDate>2022-12-10</expirationDate>
+        <types>
+            <chocolate withFilling="true" kind="milk" unsweetened="false"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="31" kind="granulated"/>
+            <ingredient ingredientName="syrup" weight="14" kind="glucose"/>
+            <ingredient ingredientName="butter" weight="12" kind="cocoa"/>
+            <ingredient ingredientName="fat" weight="10" kind="milk"/>
+            <ingredient ingredientName="powder" weight="5" kind="whey"/>
+            <ingredient ingredientName="white" weight="19" kind="egg"/>
+            <ingredient ingredientName="flavor" weight="2" kind="vanillin"/>
+        </ingredients>
+        <value proteins="26" fats="16" carbohydrates="72"/>
+        <production>Mars.Inc</production>
+    </candy>
+    <candy>
+        <candyName>Nesquik</candyName>
+        <energy>2283</energy>
+        <productionDate>2021-01-03</productionDate>
+        <expirationDate>2023-02-11</expirationDate>
+        <types>
+            <chocolate withFilling="true" kind="milk" unsweetened="false"/>
+        </types>
+        <ingredients>
+            <ingredient ingredientName="sugar" weight="29" kind="granulated"/>
+            <ingredient ingredientName="milk" weight="13" kind="whole"/>
+            <ingredient ingredientName="fat" weight="11" kind="oil"/>
+            <ingredient ingredientName="fat" weight="12" kind="milk"/>
+            <ingredient ingredientName="mass" weight="9" kind="cocoa"/>
+            <ingredient ingredientName="whey" weight="8" kind="milk"/>
+            <ingredient ingredientName="extract" weight="3" kind="vanilla"/>
+        </ingredients>
+        <value proteins="5" fats="31" carbohydrates="61"/>
+        <production>Nestle</production>
+    </candy>
+
 
 </candies>
