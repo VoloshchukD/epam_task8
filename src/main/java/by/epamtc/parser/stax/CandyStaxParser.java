@@ -38,7 +38,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
                     String tagName = reader.getLocalName();
-                    if (CandyXmlTag.CANDY.toTagName().equals(tagName)) {
+                    if (CandyXmlTag.CANDY.toString().equals(tagName)) {
                         Candy candy = buildCandy(reader);
                         candies.add(candy);
                     }
@@ -74,55 +74,55 @@ public class CandyStaxParser extends AbstractCandyParser {
                         case CHOCOLATE:
                             ChocolateType chocolateType = new ChocolateType();
                             chocolateType.setVariety(reader.getAttributeValue(null,
-                                    CandyXmlTag.VARIETY.toTagName()));
+                                    CandyXmlTag.VARIETY.toString()));
                             chocolateType.setWithFilling(Boolean.parseBoolean(
-                                    reader.getAttributeValue(null, CandyXmlTag.WITH_FILLING.toTagName())));
+                                    reader.getAttributeValue(null, CandyXmlTag.WITH_FILLING.toString())));
                             chocolateType.setUnsweetened(Boolean.parseBoolean(reader.getAttributeValue(null,
-                                    CandyXmlTag.UNSWEETENED.toTagName())));
+                                    CandyXmlTag.UNSWEETENED.toString())));
                             chocolateType.setWithCoating(Boolean.parseBoolean(reader.getAttributeValue(null,
-                                    CandyXmlTag.WITH_COATING.toTagName())));
+                                    CandyXmlTag.WITH_COATING.toString())));
                             candy.addType(chocolateType);
                             break;
                         case IRIS:
                             IrisType irisType = new IrisType();
                             irisType.setVariety(reader.getAttributeValue(null,
-                                    CandyXmlTag.VARIETY.toTagName()));
+                                    CandyXmlTag.VARIETY.toString()));
                             irisType.setConsistency(
-                                    reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toTagName()));
+                                    reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toString()));
                             irisType.setWithFlavor(Boolean.parseBoolean(reader.getAttributeValue(null,
-                                    CandyXmlTag.WITH_FLAVOR.toTagName())));
+                                    CandyXmlTag.WITH_FLAVOR.toString())));
                             candy.addType(irisType);
                             break;
                         case LOLLIPOPS:
                             LollipopsType lollipopsType = new LollipopsType();
                             lollipopsType.setVariety(reader.getAttributeValue(null,
-                                    CandyXmlTag.VARIETY.toTagName()));
+                                    CandyXmlTag.VARIETY.toString()));
                             lollipopsType.setThingsEmbedded(
-                                    reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toTagName()));
+                                    reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toString()));
                             lollipopsType.setFilling(reader.getAttributeValue(null,
-                                    CandyXmlTag.FILLING.toTagName()));
+                                    CandyXmlTag.FILLING.toString()));
                             lollipopsType.setOnStick(Boolean.parseBoolean(reader.getAttributeValue(null,
-                                    CandyXmlTag.ON_STICK.toTagName())));
+                                    CandyXmlTag.ON_STICK.toString())));
                             candy.addType(lollipopsType);
                             break;
                         case INGREDIENT:
                             Ingredient ingredient = new Ingredient();
                             ingredient.setName(reader.getAttributeValue(null,
-                                    CandyXmlTag.INGREDIENT_NAME.toTagName()));
+                                    CandyXmlTag.INGREDIENT_NAME.toString()));
                             ingredient.setWeight(Integer.parseInt(reader.getAttributeValue(null,
-                                    CandyXmlTag.WEIGHT.toTagName())));
+                                    CandyXmlTag.WEIGHT.toString())));
                             ingredient.setKind(reader.getAttributeValue(null,
-                                    CandyXmlTag.KIND.toTagName()));
+                                    CandyXmlTag.KIND.toString()));
                             candy.addIngredient(ingredient);
                             break;
                         case VALUE:
                             Value value = new Value();
                             value.setProteins(Integer.parseInt(reader.getAttributeValue(null,
-                                    CandyXmlTag.PROTEINS.toTagName())));
+                                    CandyXmlTag.PROTEINS.toString())));
                             value.setFats(Integer.parseInt(reader.getAttributeValue(null,
-                                    CandyXmlTag.FATS.toTagName())));
+                                    CandyXmlTag.FATS.toString())));
                             value.setCarbohydrates(Integer.parseInt(reader.getAttributeValue(null,
-                                    CandyXmlTag.CARBOHYDRATES.toTagName())));
+                                    CandyXmlTag.CARBOHYDRATES.toString())));
                             candy.setValue(value);
                             break;
                         case PRODUCTION:
@@ -132,7 +132,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                     break;
                 case XMLStreamConstants.END_ELEMENT:
                     tagName = reader.getLocalName();
-                    if (CandyXmlTag.CANDY.toTagName().equals(tagName)) {
+                    if (CandyXmlTag.CANDY.toString().equals(tagName)) {
                         return candy;
                     }
             }

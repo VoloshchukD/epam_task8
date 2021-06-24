@@ -32,49 +32,47 @@ public class CandyContentHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
-        if (CandyXmlTag.CANDY.toTagName().equals(qName)) {
+        if (CandyXmlTag.CANDY.toString().equals(qName)) {
             currentCandy = new Candy();
-        } else if (CandyXmlTag.CHOCOLATE.compareToTag(qName)) {
+        } else if (CandyXmlTag.CHOCOLATE.toString().equals(qName)) {
             ChocolateType currentType = new ChocolateType();
             currentType.setWithFilling(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setUnsweetened(Boolean.parseBoolean(attributes.getValue(1)));
             currentType.setVariety(attributes.getValue(2));
             currentCandy.addType(currentType);
-        } else if (CandyXmlTag.IRIS.compareToTag(qName)) {
+        } else if (CandyXmlTag.IRIS.toString().equals(qName)) {
             IrisType currentType = new IrisType();
             currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setConsistency(attributes.getValue(1));
             currentType.setVariety(attributes.getValue(2));
             currentCandy.addType(currentType);
-        } else if (CandyXmlTag.LOLLIPOPS.compareToTag(qName)) {
+        } else if (CandyXmlTag.LOLLIPOPS.toString().equals(qName)) {
             LollipopsType currentType = new LollipopsType();
             currentType.setOnStick(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setFilling(attributes.getValue(1));
             currentType.setThingsEmbedded(attributes.getValue(2));
             currentType.setVariety(attributes.getValue(3));
             currentCandy.addType(currentType);
-        } else if (CandyXmlTag.INGREDIENT.toTagName().equals(qName)) {
+        } else if (CandyXmlTag.INGREDIENT.toString().equals(qName)) {
             Ingredient ingredient = new Ingredient();
             ingredient.setName(attributes.getValue(0));
             ingredient.setWeight(Integer.parseInt(attributes.getValue(1)));
             ingredient.setKind(attributes.getValue(2) == null ? "" : attributes.getValue(2));
             currentCandy.addIngredient(ingredient);
-        } else if (CandyXmlTag.VALUE.toTagName().equals(qName)) {
+        } else if (CandyXmlTag.VALUE.toString().equals(qName)) {
             Value value = new Value();
             value.setProteins(Integer.parseInt(attributes.getValue(0)));
             value.setFats(Integer.parseInt(attributes.getValue(1)));
             value.setCarbohydrates(Integer.parseInt(attributes.getValue(2)));
             currentCandy.setValue(value);
         } else {
-            if (CandyXmlTag.contaisTag(qName)) {
                 currentXmlTag = CandyXmlTag.valueOfTag(qName);
-            }
         }
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) {
-        if (CandyXmlTag.CANDY.toTagName().equals(qName)) {
+        if (CandyXmlTag.CANDY.toString().equals(qName)) {
             candies.add(currentCandy);
         }
     }

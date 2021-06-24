@@ -13,7 +13,7 @@
 
     <complexType name="Candy">
         <sequence>
-            <element name="candyName">
+            <element name="candy-name">
                 <simpleType>
                     <restriction base="ID">
                         <pattern value="(\D{1,25})"/>
@@ -27,8 +27,8 @@
                     </restriction>
                 </simpleType>
             </element>
-            <element name="productionDate" type="date"/>
-            <element name="expirationDate" type="date"/>
+            <element name="production-date" type="date"/>
+            <element name="expiration-date" type="date"/>
             <element name="types">
                 <complexType>
                     <sequence>
@@ -55,7 +55,7 @@
     <complexType name="ChocolateType">
         <complexContent>
             <extension base="tns:CandyType">
-                <attribute name="withFilling" type="boolean" use="required"/>
+                <attribute name="with-filling" type="boolean" use="required"/>
                 <attribute name="unsweetened" type="boolean" use="optional" default="false"/>
             </extension>
         </complexContent>
@@ -63,7 +63,7 @@
     <complexType name="IrisType">
         <complexContent>
             <extension base="tns:CandyType">
-                <attribute name="withFlavor" type="boolean" use="optional" default="false"/>
+                <attribute name="with-flavor" type="boolean" use="optional" default="false"/>
                 <attribute name="consistency" use="optional" default="semi-solid">
                     <simpleType>
                         <restriction base="string">
@@ -81,7 +81,7 @@
     <complexType name="LollipopsType">
         <complexContent>
             <extension base="tns:CandyType">
-                <attribute name="onStick" type="boolean" use="required"/>
+                <attribute name="on-stick" type="boolean" use="required"/>
                 <attribute name="filling" use="required">
                     <simpleType>
                         <restriction base="string">
@@ -92,7 +92,7 @@
                         </restriction>
                     </simpleType>
                 </attribute>
-                <attribute name="thingEmbedded" use="optional" default="none">
+                <attribute name="thing-embedded" use="optional" default="none">
                     <simpleType>
                         <restriction base="string">
                             <enumeration value="insect"/>
@@ -112,7 +112,7 @@
     <element name="lollipops" type="tns:LollipopsType" substitutionGroup="tns:Type"/>
 
     <complexType name="Ingredient">
-        <attribute name="ingredientName" type="string" use="required"/>
+        <attribute name="ingredient-name" type="string" use="required"/>
         <attribute name="weight" use="required">
             <simpleType>
                 <restriction base="integer">

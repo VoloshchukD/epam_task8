@@ -40,25 +40,14 @@ public enum CandyXmlTag {
 
     private static final String ENUM_WORDS_SEPARATOR = "_";
 
-    private static final String MAKE_TAG_NAME_REGEX = "(.+)[_](.)(.*)";
-
-    public boolean compareToTag(String tag) {
-        String valueAsString = this.toString().replaceAll(ENUM_WORDS_SEPARATOR, "");
-        String upperCaseTag = tag.toUpperCase();
-        return valueAsString.equals(upperCaseTag);
-    }
-
-    public static boolean contaisTag(String tag) {
-        CandyXmlTag tagAsEnum = valueOfTag(tag);
-        return tagAsEnum != null;
-    }
+    private static final String TAG_WORDS_SEPARATOR = "-";
 
     public static CandyXmlTag valueOfTag(String tag) {
         CandyXmlTag[] tags = CandyXmlTag.values();
         CandyXmlTag tagAsEnum = null;
         int i = 0;
         while (i < tags.length) {
-            if (tags[i].compareToTag(tag)) {
+            if (tags[i].toString().equals(tag)) {
                 tagAsEnum = tags[i];
                 break;
             }
@@ -67,13 +56,10 @@ public enum CandyXmlTag {
         return tagAsEnum;
     }
 
-    public String toTagName() {
+    @Override
+    public String toString() {
         String value = this.name().toLowerCase();
-        Pattern pattern = Pattern.compile(MAKE_TAG_NAME_REGEX);
-        Matcher matcher = pattern.matcher(value);
-        if (matcher.find()) {
-            value = matcher.group(1) + matcher.group(2).toUpperCase() + matcher.group(3);
-        }
+        value = value.replaceAll(ENUM_WORDS_SEPARATOR, TAG_WORDS_SEPARATOR);
         return value;
     }
 
