@@ -2,14 +2,14 @@ package by.epamtc.entity.type;
 
 public abstract class CandyType {
 
-    private String kind;
+    private String variety;
 
-    public String getKind() {
-        return kind;
+    public String getVariety() {
+        return variety;
     }
 
-    public void setKind(String kind) {
-        this.kind = kind;
+    public void setVariety(String variety) {
+        this.variety = variety;
     }
 
     @Override
@@ -17,13 +17,13 @@ public abstract class CandyType {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CandyType candyType = (CandyType) o;
-        return (kind == candyType.kind || (kind != null && kind.equals(candyType.kind)));
+        return (variety == candyType.variety || (variety != null && variety.equals(candyType.variety)));
     }
 
     @Override
     public int hashCode() {
         int result = 37;
-        result = 17 * result + ((kind != null) ? kind.hashCode() : 0);
+        result = 17 * result + ((variety != null) ? variety.hashCode() : 0);
         return result;
     }
 

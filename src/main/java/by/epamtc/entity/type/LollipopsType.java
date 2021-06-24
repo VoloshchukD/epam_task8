@@ -56,8 +56,8 @@ public class LollipopsType extends CandyType {
     @Override
     public String toString() {
         return getClass().getName() +
-                "@kind=" + super.getKind() +
-                "onStick=" + onStick +
+                "@variety=" + super.getVariety() +
+                ", onStick=" + onStick +
                 ", thingsEmbedded=" + thingsEmbedded +
                 ", filling=" + filling;
     }

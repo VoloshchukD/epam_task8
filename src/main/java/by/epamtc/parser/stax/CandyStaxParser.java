@@ -73,8 +73,8 @@ public class CandyStaxParser extends AbstractCandyParser {
                             break;
                         case CHOCOLATE:
                             ChocolateType chocolateType = new ChocolateType();
-                            chocolateType.setKind(reader.getAttributeValue(null,
-                                    CandyXmlTag.KIND.toTagName()));
+                            chocolateType.setVariety(reader.getAttributeValue(null,
+                                    CandyXmlTag.VARIETY.toTagName()));
                             chocolateType.setWithFilling(Boolean.parseBoolean(
                                     reader.getAttributeValue(null, CandyXmlTag.WITH_FILLING.toTagName())));
                             chocolateType.setUnsweetened(Boolean.parseBoolean(reader.getAttributeValue(null,
@@ -85,8 +85,8 @@ public class CandyStaxParser extends AbstractCandyParser {
                             break;
                         case IRIS:
                             IrisType irisType = new IrisType();
-                            irisType.setKind(reader.getAttributeValue(null,
-                                    CandyXmlTag.KIND.toTagName()));
+                            irisType.setVariety(reader.getAttributeValue(null,
+                                    CandyXmlTag.VARIETY.toTagName()));
                             irisType.setConsistency(
                                     reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toTagName()));
                             irisType.setWithFlavor(Boolean.parseBoolean(reader.getAttributeValue(null,
@@ -95,8 +95,8 @@ public class CandyStaxParser extends AbstractCandyParser {
                             break;
                         case LOLLIPOPS:
                             LollipopsType lollipopsType = new LollipopsType();
-                            lollipopsType.setKind(reader.getAttributeValue(null,
-                                    CandyXmlTag.KIND.toTagName()));
+                            lollipopsType.setVariety(reader.getAttributeValue(null,
+                                    CandyXmlTag.VARIETY.toTagName()));
                             lollipopsType.setThingsEmbedded(
                                     reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toTagName()));
                             lollipopsType.setFilling(reader.getAttributeValue(null,

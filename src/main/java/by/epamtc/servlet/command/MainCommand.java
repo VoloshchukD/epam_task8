@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class MainCommand implements Command  {
+public class MainCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/main.jsp").forward(request, response);
     }
 
 }

@@ -9,7 +9,6 @@ import by.epamtc.parser.dom.CandyDomParser;
 import by.epamtc.parser.sax.CandySaxParser;
 import by.epamtc.parser.stax.CandyStaxParser;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -45,7 +44,7 @@ public class ParserTest {
         testCandy.setProductionDate(LocalDate.parse("2021-06-12"));
         testCandy.setExpirationDate(LocalDate.parse("2021-09-15"));
         ChocolateType type = new ChocolateType();
-        type.setKind("milk");
+        type.setVariety("milk");
         type.setWithFilling(true);
         type.setUnsweetened(false);
         testCandy.addType(type);

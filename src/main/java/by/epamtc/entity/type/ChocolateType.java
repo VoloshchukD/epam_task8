@@ -55,7 +55,7 @@ public class ChocolateType extends CandyType {
     @Override
     public String toString() {
         return getClass().getName() +
-                "@kind=" + super.getKind() +
+                "@variety=" + super.getVariety() +
                 ", withFilling=" + withFilling +
                 ", unsweetened=" + unsweetened +
                 ", withCoating=" + withCoating;

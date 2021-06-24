@@ -38,20 +38,20 @@ public class CandyContentHandler extends DefaultHandler {
             ChocolateType currentType = new ChocolateType();
             currentType.setWithFilling(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setUnsweetened(Boolean.parseBoolean(attributes.getValue(1)));
-            currentType.setKind(attributes.getValue(2));
+            currentType.setVariety(attributes.getValue(2));
             currentCandy.addType(currentType);
         } else if (CandyXmlTag.IRIS.compareToTag(qName)) {
             IrisType currentType = new IrisType();
             currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setConsistency(attributes.getValue(1));
-            currentType.setKind(attributes.getValue(2));
+            currentType.setVariety(attributes.getValue(2));
             currentCandy.addType(currentType);
         } else if (CandyXmlTag.LOLLIPOPS.compareToTag(qName)) {
             LollipopsType currentType = new LollipopsType();
             currentType.setOnStick(Boolean.parseBoolean(attributes.getValue(0)));
             currentType.setFilling(attributes.getValue(1));
             currentType.setThingsEmbedded(attributes.getValue(2));
-            currentType.setKind(attributes.getValue(3));
+            currentType.setVariety(attributes.getValue(3));
             currentCandy.addType(currentType);
         } else if (CandyXmlTag.INGREDIENT.toTagName().equals(qName)) {
             Ingredient ingredient = new Ingredient();

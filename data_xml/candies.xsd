@@ -48,26 +48,15 @@
         </sequence>
     </complexType>
 
-    <complexType name="CandyType"/>
+    <complexType name="CandyType">
+        <attribute name="variety" use="required"/>
+    </complexType>
 
     <complexType name="ChocolateType">
         <complexContent>
             <extension base="tns:CandyType">
                 <attribute name="withFilling" type="boolean" use="required"/>
                 <attribute name="unsweetened" type="boolean" use="optional" default="false"/>
-                <attribute name="kind" use="required">
-                    <simpleType>
-                        <restriction base="string">
-                            <enumeration value="dark"/>
-                            <enumeration value="milk"/>
-                            <enumeration value="white"/>
-                            <enumeration value="ruby"/>
-                            <enumeration value="vegan"/>
-                            <enumeration value="diabetic"/>
-                            <enumeration value="unsweetened"/>
-                        </restriction>
-                    </simpleType>
-                </attribute>
             </extension>
         </complexContent>
     </complexType>
@@ -83,14 +72,6 @@
                             <enumeration value="semi-solid"/>
                             <enumeration value="soft"/>
                             <enumeration value="viscous"/>
-                        </restriction>
-                    </simpleType>
-                </attribute>
-                <attribute name="kind" use="required">
-                    <simpleType>
-                        <restriction base="string">
-                            <enumeration value="toffee"/>
-                            <enumeration value="fudge"/>
                         </restriction>
                     </simpleType>
                 </attribute>
@@ -118,16 +99,6 @@
                             <enumeration value="flashing_light"/>
                             <enumeration value="motorized_device"/>
                             <enumeration value="none"/>
-                        </restriction>
-                    </simpleType>
-                </attribute>
-                <attribute name="kind" use="required">
-                    <simpleType>
-                        <restriction base="string">
-                            <enumeration value="classic"/>
-                            <enumeration value="wrapped"/>
-                            <enumeration value="monpensier"/>
-                            <enumeration value="long"/>
                         </restriction>
                     </simpleType>
                 </attribute>

@@ -17,6 +17,7 @@ public enum CandyXmlTag {
     LOLLIPOPS,
     WITH_FILLING,
     UNSWEETENED,
+    VARIETY,
     KIND,
     WITH_FLAVOR,
     CONSISTENCY,
