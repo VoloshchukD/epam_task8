@@ -35,7 +35,9 @@
                 </td>
                 <td>
                     <c:if test="${ not empty candy.types }">
-                        <c:out value="${candy.types}"/>
+                        <c:forEach items="${candy.types}" var="type">
+                            <c:out value="${type}"/>
+                        </c:forEach>
                     </c:if>
                 </td>
                 <td>

@@ -77,8 +77,10 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.VARIETY.toString()));
                             chocolateType.setWithFilling(Boolean.parseBoolean(
                                     reader.getAttributeValue(null, CandyXmlTag.WITH_FILLING.toString())));
-                            chocolateType.setUnsweetened(Boolean.parseBoolean(reader.getAttributeValue(null,
-                                    CandyXmlTag.UNSWEETENED.toString())));
+                            String unsweetened = reader.getAttributeValue(null, CandyXmlTag.UNSWEETENED.toString());
+                            if (unsweetened != null) {
+                                chocolateType.setUnsweetened(Boolean.parseBoolean(unsweetened));
+                            }
                             chocolateType.setWithCoating(Boolean.parseBoolean(reader.getAttributeValue(null,
                                     CandyXmlTag.WITH_COATING.toString())));
                             candy.addType(chocolateType);
@@ -87,18 +89,24 @@ public class CandyStaxParser extends AbstractCandyParser {
                             IrisType irisType = new IrisType();
                             irisType.setVariety(reader.getAttributeValue(null,
                                     CandyXmlTag.VARIETY.toString()));
-                            irisType.setConsistency(
-                                    reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toString()));
-                            irisType.setWithFlavor(Boolean.parseBoolean(reader.getAttributeValue(null,
-                                    CandyXmlTag.WITH_FLAVOR.toString())));
+                            String consistency = reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toString());
+                            if (consistency != null) {
+                                irisType.setConsistency(consistency);
+                            }
+                            String withFlavor = reader.getAttributeValue(null, CandyXmlTag.WITH_FLAVOR.toString());
+                            if (withFlavor != null) {
+                                irisType.setWithFlavor(Boolean.parseBoolean(withFlavor));
+                            }
                             candy.addType(irisType);
                             break;
                         case LOLLIPOPS:
                             LollipopsType lollipopsType = new LollipopsType();
                             lollipopsType.setVariety(reader.getAttributeValue(null,
                                     CandyXmlTag.VARIETY.toString()));
-                            lollipopsType.setThingsEmbedded(
-                                    reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toString()));
+                            String thingsEmbedded = reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toString());
+                            if (thingsEmbedded != null) {
+                                lollipopsType.setThingsEmbedded(thingsEmbedded);
+                            }
                             lollipopsType.setFilling(reader.getAttributeValue(null,
                                     CandyXmlTag.FILLING.toString()));
                             lollipopsType.setOnStick(Boolean.parseBoolean(reader.getAttributeValue(null,
@@ -111,8 +119,10 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.INGREDIENT_NAME.toString()));
                             ingredient.setWeight(Integer.parseInt(reader.getAttributeValue(null,
                                     CandyXmlTag.WEIGHT.toString())));
-                            ingredient.setKind(reader.getAttributeValue(null,
-                                    CandyXmlTag.KIND.toString()));
+                            String kind = reader.getAttributeValue(null, CandyXmlTag.KIND.toString());
+                            if (kind != null) {
+                                ingredient.setKind(kind);
+                            }
                             candy.addIngredient(ingredient);
                             break;
                         case VALUE:

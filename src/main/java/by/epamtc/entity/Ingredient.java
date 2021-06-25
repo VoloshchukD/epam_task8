@@ -2,11 +2,13 @@ package by.epamtc.entity;
 
 public class Ingredient {
 
+    private static final String DEFAULT_KIND = "-";
+
     private String name;
 
     private int weight;
 
-    private String kind;
+    private String kind = DEFAULT_KIND;
 
     public String getName() {
         return name;

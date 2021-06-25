@@ -2,9 +2,13 @@ package by.epamtc.entity.type;
 
 public class IrisType extends CandyType {
 
-    private boolean withFlavor;
+    private static final boolean DEFAULT_WITH_FLAVOR = false;
 
-    private String consistency;
+    private static final String DEFAULT_CONSISTENCY = "semi-solid";
+
+    private boolean withFlavor = DEFAULT_WITH_FLAVOR;
+
+    private String consistency = DEFAULT_CONSISTENCY;
 
     public boolean isWithFlavor() {
         return withFlavor;
@@ -28,8 +32,7 @@ public class IrisType extends CandyType {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         IrisType irisType = (IrisType) o;
-        return withFlavor == irisType.withFlavor
-                && (consistency == irisType.consistency
+        return withFlavor == irisType.withFlavor && (consistency == irisType.consistency
                 || (consistency != null && consistency.equals(irisType.consistency)));
     }
 

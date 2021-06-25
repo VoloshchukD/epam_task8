@@ -2,9 +2,11 @@ package by.epamtc.entity.type;
 
 public class LollipopsType extends CandyType {
 
+    private static final String DEFAULT_THINGS_EMBEDDED = "none";
+
     private boolean onStick;
 
-    private String thingsEmbedded;
+    private String thingsEmbedded = DEFAULT_THINGS_EMBEDDED;
 
     private String filling;
 

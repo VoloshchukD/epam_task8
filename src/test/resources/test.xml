@@ -3,20 +3,23 @@
          xmlns="http://www.example.com/test"
          xsi:schemaLocation="http://www.example.com/test test.xsd">
     <candy>
-        <candyName>Mars</candyName>
+        <candy-name>Extra</candy-name>
         <energy>1000</energy>
-        <productionDate>2021-06-12</productionDate>
-        <expirationDate>2021-09-15</expirationDate>
+        <production-date>2021-06-12</production-date>
+        <expiration-date>2021-09-15</expiration-date>
         <types>
-            <chocolate withFilling="true" unsweetened="false" kind="milk"/>
+            <chocolate with-filling="true" variety="milk"/>
+            <iris variety="toffee" />
+            <lollipops variety="wrapped" on-stick="true" filling="soft_candy"/>
         </types>
         <ingredients>
-            <ingredient ingredientName="sugar" weight="112" kind="white"/>
-            <ingredient ingredientName="vanillin" weight="25" kind="classic"/>
-            <ingredient ingredientName="milk" weight="33" kind="powdered"/>
+            <ingredient ingredient-name="sugar" weight="112" kind="white"/>
+            <ingredient weight="25" ingredient-name="vanillin"  kind="classic"/>
+            <ingredient kind="powdered" ingredient-name="milk" weight="33" />
         </ingredients>
         <value proteins="10" fats="13" carbohydrates="44"/>
-        <production>Mars.Inc</production>
+        <production>Extra.Inc</production>
     </candy>
+
 
 </candies>

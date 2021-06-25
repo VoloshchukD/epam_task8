@@ -2,9 +2,11 @@ package by.epamtc.entity.type;
 
 public class ChocolateType extends CandyType {
 
+    private static final boolean DEFAULT_UNSWEETENED = false;
+
     private boolean withFilling;
 
-    private boolean unsweetened;
+    private boolean unsweetened = DEFAULT_UNSWEETENED;
 
     private boolean withCoating;
 

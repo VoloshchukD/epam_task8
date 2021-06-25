@@ -81,10 +81,12 @@ public class CandyDomParser extends AbstractCandyParser {
         if (chocolateTypesElement != null) {
             CandyType candyType = buildChocolateType(chocolateTypesElement);
             candy.addType(candyType);
-        } else if (irisTypesElement != null) {
+        }
+        if (irisTypesElement != null) {
             CandyType candyType = buildIrisType(irisTypesElement);
             candy.addType(candyType);
-        } else if (lollipopsTypesElement != null) {
+        }
+        if (lollipopsTypesElement != null) {
             CandyType candyType = buildLollipopsType(lollipopsTypesElement);
             candy.addType(candyType);
         }
@@ -109,7 +111,10 @@ public class CandyDomParser extends AbstractCandyParser {
     private CandyType buildChocolateType(Element typeElement) {
         ChocolateType candyType = new ChocolateType();
         candyType.setVariety(typeElement.getAttribute(CandyXmlTag.VARIETY.toString()));
-        candyType.setUnsweetened(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.UNSWEETENED.toString())));
+        String unsweetened = typeElement.getAttribute(CandyXmlTag.UNSWEETENED.toString());
+        if (!unsweetened.isEmpty()) {
+            candyType.setUnsweetened(Boolean.parseBoolean(unsweetened));
+        }
         candyType.setWithCoating(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_COATING.toString())));
         candyType.setWithFilling(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_FILLING.toString())));
         return candyType;
@@ -118,8 +123,14 @@ public class CandyDomParser extends AbstractCandyParser {
     private CandyType buildIrisType(Element typeElement) {
         IrisType candyType = new IrisType();
         candyType.setVariety(typeElement.getAttribute(CandyXmlTag.VARIETY.toString()));
-        candyType.setWithFlavor(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.WITH_FLAVOR.toString())));
-        candyType.setConsistency(typeElement.getAttribute(CandyXmlTag.CONSISTENCY.toString()));
+        String withFlavor = typeElement.getAttribute(CandyXmlTag.WITH_FLAVOR.toString());
+        if (!withFlavor.isEmpty()) {
+            candyType.setWithFlavor(Boolean.parseBoolean(withFlavor));
+        }
+        String consistency = typeElement.getAttribute(CandyXmlTag.CONSISTENCY.toString());
+        if (!consistency.isEmpty()) {
+            candyType.setConsistency(consistency);
+        }
         return candyType;
     }
 
@@ -128,7 +139,10 @@ public class CandyDomParser extends AbstractCandyParser {
         candyType.setVariety(typeElement.getAttribute(CandyXmlTag.VARIETY.toString()));
         candyType.setFilling(typeElement.getAttribute(CandyXmlTag.FILLING.toString()));
         candyType.setOnStick(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.ON_STICK.toString())));
-        candyType.setThingsEmbedded(typeElement.getAttribute(CandyXmlTag.THING_EMBEDDED.toString()));
+        String thingsEmbedded = typeElement.getAttribute(CandyXmlTag.THING_EMBEDDED.toString());
+        if (!thingsEmbedded.isEmpty()) {
+            candyType.setThingsEmbedded(thingsEmbedded);
+        }
         return candyType;
     }
 
@@ -136,7 +150,10 @@ public class CandyDomParser extends AbstractCandyParser {
         Ingredient ingredient = new Ingredient();
         ingredient.setName(currentElement.getAttribute(CandyXmlTag.INGREDIENT_NAME.toString()));
         ingredient.setWeight(Integer.parseInt(currentElement.getAttribute(CandyXmlTag.WEIGHT.toString())));
-        ingredient.setKind(currentElement.getAttribute(CandyXmlTag.KIND.toString()));
+        String kind = currentElement.getAttribute(CandyXmlTag.KIND.toString());
+        if (!kind.isEmpty()) {
+            ingredient.setKind(kind);
+        }
         return ingredient;
     }
 

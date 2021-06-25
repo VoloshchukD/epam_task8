@@ -36,34 +36,70 @@ public class CandyContentHandler extends DefaultHandler {
             currentCandy = new Candy();
         } else if (CandyXmlTag.CHOCOLATE.toString().equals(qName)) {
             ChocolateType currentType = new ChocolateType();
-            currentType.setWithFilling(Boolean.parseBoolean(attributes.getValue(0)));
-            currentType.setUnsweetened(Boolean.parseBoolean(attributes.getValue(1)));
-            currentType.setVariety(attributes.getValue(2));
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String currentAttributeName = attributes.getQName(i);
+                if (currentAttributeName.equals(CandyXmlTag.WITH_FILLING.toString())) {
+                    currentType.setWithFilling(Boolean.parseBoolean(attributes.getValue(i)));
+                } else if (currentAttributeName.equals(CandyXmlTag.UNSWEETENED.toString())) {
+                    currentType.setUnsweetened(Boolean.parseBoolean(attributes.getValue(i)));
+                } else if (currentAttributeName.equals(CandyXmlTag.VARIETY.toString())) {
+                    currentType.setVariety(attributes.getValue(i));
+                }
+            }
             currentCandy.addType(currentType);
         } else if (CandyXmlTag.IRIS.toString().equals(qName)) {
             IrisType currentType = new IrisType();
-            currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(0)));
-            currentType.setConsistency(attributes.getValue(1));
-            currentType.setVariety(attributes.getValue(2));
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String currentAttributeName = attributes.getQName(i);
+                if (currentAttributeName.equals(CandyXmlTag.WITH_FLAVOR.toString())) {
+                    currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(i)));
+                } else if (currentAttributeName.equals(CandyXmlTag.CONSISTENCY.toString())) {
+                        currentType.setConsistency(attributes.getValue(i));
+                } else if (currentAttributeName.equals(CandyXmlTag.VARIETY.toString())) {
+                    currentType.setVariety(attributes.getValue(i));
+                }
+            }
             currentCandy.addType(currentType);
         } else if (CandyXmlTag.LOLLIPOPS.toString().equals(qName)) {
             LollipopsType currentType = new LollipopsType();
-            currentType.setOnStick(Boolean.parseBoolean(attributes.getValue(0)));
-            currentType.setFilling(attributes.getValue(1));
-            currentType.setThingsEmbedded(attributes.getValue(2));
-            currentType.setVariety(attributes.getValue(3));
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String currentAttributeName = attributes.getQName(i);
+                if (currentAttributeName.equals(CandyXmlTag.FILLING.toString())) {
+                    currentType.setFilling(attributes.getValue(i));
+                } else if (currentAttributeName.equals(CandyXmlTag.THING_EMBEDDED.toString())) {
+                    currentType.setThingsEmbedded(attributes.getValue(i));
+                } else if (currentAttributeName.equals(CandyXmlTag.VARIETY.toString())) {
+                    currentType.setVariety(attributes.getValue(i));
+                } else if (currentAttributeName.equals(CandyXmlTag.ON_STICK.toString())) {
+                    currentType.setOnStick(Boolean.parseBoolean(attributes.getValue(i)));
+                }
+            }
             currentCandy.addType(currentType);
         } else if (CandyXmlTag.INGREDIENT.toString().equals(qName)) {
             Ingredient ingredient = new Ingredient();
-            ingredient.setName(attributes.getValue(0));
-            ingredient.setWeight(Integer.parseInt(attributes.getValue(1)));
-            ingredient.setKind(attributes.getValue(2) == null ? "" : attributes.getValue(2));
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String currentAttributeName = attributes.getQName(i);
+                if (currentAttributeName.equals(CandyXmlTag.INGREDIENT_NAME.toString())) {
+                    ingredient.setName(attributes.getValue(i));
+                } else if (currentAttributeName.equals(CandyXmlTag.WEIGHT.toString())) {
+                    ingredient.setWeight(Integer.parseInt(attributes.getValue(i)));
+                } else if (currentAttributeName.equals(CandyXmlTag.KIND.toString())) {
+                    ingredient.setKind(attributes.getValue(i));
+                }
+            }
             currentCandy.addIngredient(ingredient);
         } else if (CandyXmlTag.VALUE.toString().equals(qName)) {
             Value value = new Value();
-            value.setProteins(Integer.parseInt(attributes.getValue(0)));
-            value.setFats(Integer.parseInt(attributes.getValue(1)));
-            value.setCarbohydrates(Integer.parseInt(attributes.getValue(2)));
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String currentAttributeName = attributes.getQName(i);
+                if (currentAttributeName.equals(CandyXmlTag.PROTEINS.toString())) {
+                    value.setProteins(Integer.parseInt(attributes.getValue(i)));
+                } else if (currentAttributeName.equals(CandyXmlTag.FATS.toString())) {
+                    value.setFats(Integer.parseInt(attributes.getValue(i)));
+                } else if (currentAttributeName.equals(CandyXmlTag.CARBOHYDRATES.toString())) {
+                    value.setCarbohydrates(Integer.parseInt(attributes.getValue(i)));
+                }
+            }
             currentCandy.setValue(value);
         } else {
                 currentXmlTag = CandyXmlTag.valueOfTag(qName);

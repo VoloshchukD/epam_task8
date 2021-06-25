@@ -8,7 +8,7 @@
         <production-date>2021-06-12</production-date>
         <expiration-date>2021-09-15</expiration-date>
         <types>
-            <chocolate with-filling="true" unsweetened="false" variety="milk"/>
+            <chocolate with-filling="true" variety="milk"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="112" kind="white"/>
@@ -25,7 +25,7 @@
         <expiration-date>2022-09-15</expiration-date>
         <types>
             <iris variety="fudge" consistency="soft" with-flavor="true"/>
-            <chocolate with-filling="false" unsweetened="false" variety="dark"/>
+            <chocolate with-filling="false" variety="dark"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="syrup" weight="70" kind="glucose"/>
@@ -41,7 +41,7 @@
         <production-date>2021-01-05</production-date>
         <expiration-date>2021-12-05</expiration-date>
         <types>
-            <chocolate with-filling="true" unsweetened="false" variety="milk"/>
+            <chocolate with-filling="true" variety="milk"/>
             <iris variety="toffee" with-flavor="true" consistency="viscous"/>
         </types>
         <ingredients>
@@ -79,7 +79,7 @@
         <production-date>2021-06-21</production-date>
         <expiration-date>2022-09-30</expiration-date>
         <types>
-            <chocolate with-filling="true" unsweetened="false" variety="milk"/>
+            <chocolate with-filling="true" variety="milk"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="15" kind="white"/>
@@ -118,7 +118,7 @@
         <production-date>2020-01-01</production-date>
         <expiration-date>2025-10-01</expiration-date>
         <types>
-            <lollipops variety="classic" filling="none" on-stick="false" thing-embedded="none"/>
+            <lollipops variety="classic" filling="none" on-stick="false"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="3" kind="white"/>
@@ -162,7 +162,7 @@
         <expiration-date>2022-10-16</expiration-date>
         <types>
             <chocolate with-filling="true" unsweetened="false" variety="white"/>
-            <iris variety="fudge" consistency="semi-solid" with-flavor="false"/>
+            <iris variety="fudge"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="28" kind="white"/>
@@ -184,7 +184,7 @@
         <production-date>2019-06-11</production-date>
         <expiration-date>2020-02-12</expiration-date>
         <types>
-            <chocolate with-filling="false" unsweetened="false" variety="dark"/>
+            <chocolate with-filling="false" variety="dark"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="25" kind="white"/>
@@ -205,7 +205,7 @@
         <production-date>2021-06-09</production-date>
         <expiration-date>2022-04-17</expiration-date>
         <types>
-            <chocolate with-filling="false" variety="ruby" unsweetened="false"/>
+            <chocolate with-filling="false" variety="ruby"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="31" kind="granulated"/>
@@ -224,7 +224,7 @@
         <production-date>2020-02-01</production-date>
         <expiration-date>2023-04-01</expiration-date>
         <types>
-            <lollipops variety="wrapped" filling="bubblegum" on-stick="true" thing-embedded="none"/>
+            <lollipops variety="wrapped" filling="bubblegum" on-stick="true"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="6" kind="white"/>
@@ -281,7 +281,7 @@
         <production-date>2021-03-01</production-date>
         <expiration-date>2022-12-10</expiration-date>
         <types>
-            <chocolate with-filling="true" variety="milk" unsweetened="false"/>
+            <chocolate with-filling="true" variety="milk"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="31" kind="granulated"/>
@@ -301,7 +301,7 @@
         <production-date>2021-01-03</production-date>
         <expiration-date>2023-02-11</expiration-date>
         <types>
-            <chocolate with-filling="true" variety="milk" unsweetened="false"/>
+            <chocolate with-filling="true" variety="milk"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="29" kind="granulated"/>

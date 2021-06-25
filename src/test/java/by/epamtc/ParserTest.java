@@ -4,6 +4,8 @@ import by.epamtc.entity.Candy;
 import by.epamtc.entity.Ingredient;
 import by.epamtc.entity.Value;
 import by.epamtc.entity.type.ChocolateType;
+import by.epamtc.entity.type.IrisType;
+import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.parser.AbstractCandyParser;
 import by.epamtc.parser.dom.CandyDomParser;
 import by.epamtc.parser.sax.CandySaxParser;
@@ -39,15 +41,23 @@ public class ParserTest {
     @BeforeClass
     public static void setUp() {
         testCandy = new Candy();
-        testCandy.setName("Mars");
+        testCandy.setName("Extra");
         testCandy.setEnergy(1000);
         testCandy.setProductionDate(LocalDate.parse("2021-06-12"));
         testCandy.setExpirationDate(LocalDate.parse("2021-09-15"));
-        ChocolateType type = new ChocolateType();
-        type.setVariety("milk");
-        type.setWithFilling(true);
-        type.setUnsweetened(false);
-        testCandy.addType(type);
+        ChocolateType chocolateType = new ChocolateType();
+        chocolateType.setVariety("milk");
+        chocolateType.setWithFilling(true);
+        chocolateType.setUnsweetened(false);
+        testCandy.addType(chocolateType);
+        IrisType irisType = new IrisType();
+        irisType.setVariety("toffee");
+        testCandy.addType(irisType);
+        LollipopsType lollipopsType = new LollipopsType();
+        lollipopsType.setVariety("wrapped");
+        lollipopsType.setOnStick(true);
+        lollipopsType.setFilling("soft_candy");
+        testCandy.addType(lollipopsType);
         Ingredient ingredient = new Ingredient();
         ingredient.setName("sugar");
         ingredient.setWeight(112);
@@ -68,7 +78,7 @@ public class ParserTest {
         value.setFats(13);
         value.setCarbohydrates(44);
         testCandy.setValue(value);
-        testCandy.setProduction("Mars.Inc");
+        testCandy.setProduction("Extra.Inc");
     }
 
     @Test
