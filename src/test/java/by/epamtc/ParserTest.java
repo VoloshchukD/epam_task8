@@ -6,6 +6,7 @@ import by.epamtc.entity.Value;
 import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
+import by.epamtc.exception.CandyParsingException;
 import by.epamtc.parser.AbstractCandyParser;
 import by.epamtc.parser.dom.CandyDomParser;
 import by.epamtc.parser.sax.CandySaxParser;
@@ -82,7 +83,7 @@ public class ParserTest {
     }
 
     @Test
-    public void testSaxParser() throws FileNotFoundException {
+    public void testSaxParser() throws FileNotFoundException, CandyParsingException {
         InputStream inputStream = new FileInputStream(file);
         parser = new CandySaxParser();
         parser.parseCandies(inputStream);
@@ -91,7 +92,7 @@ public class ParserTest {
     }
 
     @Test
-    public void testStaxParser() throws FileNotFoundException {
+    public void testStaxParser() throws FileNotFoundException, CandyParsingException {
         InputStream inputStream = new FileInputStream(file);
         parser = new CandyStaxParser();
         parser.parseCandies(inputStream);
@@ -100,7 +101,7 @@ public class ParserTest {
     }
 
     @Test
-    public void testDomParser() throws FileNotFoundException {
+    public void testDomParser() throws FileNotFoundException, CandyParsingException {
         InputStream inputStream = new FileInputStream(file);
         parser = new CandyDomParser();
         parser.parseCandies(inputStream);

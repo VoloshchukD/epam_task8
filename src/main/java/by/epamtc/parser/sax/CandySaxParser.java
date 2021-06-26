@@ -1,9 +1,7 @@
 package by.epamtc.parser.sax;
 
+import by.epamtc.exception.CandyParsingException;
 import by.epamtc.parser.AbstractCandyParser;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -20,16 +18,14 @@ public class CandySaxParser extends AbstractCandyParser {
 
     private XMLReader reader;
 
-    private static final Logger logger = LogManager.getLogger();
-
-    public CandySaxParser() {
+    public CandySaxParser() throws CandyParsingException {
         super();
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
             SAXParser saxParser = factory.newSAXParser();
             reader = saxParser.getXMLReader();
         } catch (ParserConfigurationException | SAXException e) {
-            logger.log(Level.ERROR, "Error while creating SAXParser " + e.getMessage());
+            throw new CandyParsingException("Error while creating SAXParser", e);
         }
         contentHandler = new CandyContentHandler();
         reader.setContentHandler(contentHandler);
@@ -38,14 +34,14 @@ public class CandySaxParser extends AbstractCandyParser {
     }
 
     @Override
-    public void parseCandies(InputStream inputStream) {
+    public void parseCandies(InputStream inputStream) throws CandyParsingException {
         try {
             InputSource inputSource = new InputSource(inputStream);
             reader.parse(inputSource);
         } catch (IOException e) {
-            logger.log(Level.ERROR, "IOException while SAX parsing " + e.getMessage());
+            throw new CandyParsingException("IOException while SAX parsing", e);
         } catch (SAXException e) {
-            logger.log(Level.ERROR, "SAXException while parse " + e.getMessage());
+            throw new CandyParsingException("SAXException while parse", e);
         }
         candies = contentHandler.getCandies();
     }

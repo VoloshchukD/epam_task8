@@ -3,7 +3,6 @@ package by.epamtc.servlet.command;
 import by.epamtc.servlet.Command;
 
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class CommandProvider {

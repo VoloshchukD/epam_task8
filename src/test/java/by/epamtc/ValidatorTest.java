@@ -1,5 +1,6 @@
 package by.epamtc;
 
+import by.epamtc.exception.CandyParsingException;
 import by.epamtc.validator.CandyValidator;
 import org.junit.Assert;
 import org.junit.Before;
@@ -38,12 +39,12 @@ public class ValidatorTest {
     }
 
     @Test
-    public void testCandyValidator() {
+    public void testCandyValidator() throws CandyParsingException {
         Assert.assertTrue(CandyValidator.validate(targetInputStream, schemaInputStream));
     }
 
     @Test
-    public void testCandyValidatorException() {
+    public void testCandyValidatorException() throws CandyParsingException {
         Assert.assertFalse(CandyValidator.validate(wrongTargetInputStream, schemaInputStream));
     }
 

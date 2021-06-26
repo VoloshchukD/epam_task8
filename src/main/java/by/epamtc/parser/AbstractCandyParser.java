@@ -1,6 +1,7 @@
 package by.epamtc.parser;
 
 import by.epamtc.entity.Candy;
+import by.epamtc.exception.CandyParsingException;
 
 import java.io.InputStream;
 import java.util.HashSet;
@@ -14,7 +15,7 @@ public abstract class AbstractCandyParser {
         candies = new HashSet<Candy>();
     }
 
-    public abstract void parseCandies(InputStream inputStream);
+    public abstract void parseCandies(InputStream inputStream) throws CandyParsingException;
 
     public Set<Candy> getCandies() {
         return candies;

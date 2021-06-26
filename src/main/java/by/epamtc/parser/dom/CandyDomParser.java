@@ -7,11 +7,9 @@ import by.epamtc.entity.Value;
 import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
+import by.epamtc.exception.CandyParsingException;
 import by.epamtc.parser.AbstractCandyParser;
 import by.epamtc.parser.CandyXmlTag;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -30,19 +28,17 @@ public class CandyDomParser extends AbstractCandyParser {
 
     private DocumentBuilder docBuilder;
 
-    private static final Logger logger = LogManager.getLogger();
-
-    public CandyDomParser() {
+    public CandyDomParser() throws CandyParsingException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            logger.log(Level.ERROR, "Error while creating DocumentBuilder" + e.getMessage());
+            throw new CandyParsingException("Error while creating DocumentBuilder", e);
         }
     }
 
     @Override
-    public void parseCandies(InputStream inputStream) {
+    public void parseCandies(InputStream inputStream) throws CandyParsingException {
         try {
             Document document = docBuilder.parse(inputStream);
             Element rootElement = document.getDocumentElement();
@@ -54,9 +50,9 @@ public class CandyDomParser extends AbstractCandyParser {
                 candies.add(currentCandy);
             }
         } catch (SAXException e) {
-            logger.log(Level.ERROR, "Error while DOM parsing " + e.getMessage());
+            throw new CandyParsingException("Error while DOM parsing", e);
         } catch (IOException e) {
-            logger.log(Level.ERROR, "IO exception while DOM parsing" + e.getMessage());
+            throw new CandyParsingException("IO exception while DOM parsing", e);
         }
     }
 

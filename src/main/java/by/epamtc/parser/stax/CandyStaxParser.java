@@ -6,11 +6,9 @@ import by.epamtc.entity.Value;
 import by.epamtc.entity.type.ChocolateType;
 import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
+import by.epamtc.exception.CandyParsingException;
 import by.epamtc.parser.AbstractCandyParser;
 import by.epamtc.parser.CandyXmlTag;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -24,14 +22,12 @@ public class CandyStaxParser extends AbstractCandyParser {
 
     private XMLInputFactory inputFactory;
 
-    private static final Logger logger = LogManager.getLogger();
-
     public CandyStaxParser() {
         inputFactory = XMLInputFactory.newInstance();
     }
 
     @Override
-    public void parseCandies(InputStream inputStream) {
+    public void parseCandies(InputStream inputStream) throws CandyParsingException {
         try {
             XMLStreamReader reader = inputFactory.createXMLStreamReader(inputStream);
             while (reader.hasNext()) {
@@ -45,7 +41,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                 }
             }
         } catch (XMLStreamException e) {
-            logger.log(Level.ERROR, "Error while Stax parsing " + e.getMessage());
+            throw new CandyParsingException("Error while Stax parsing", e);
         }
     }
 
