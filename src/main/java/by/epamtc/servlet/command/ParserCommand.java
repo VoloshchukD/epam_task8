@@ -21,8 +21,7 @@ public class ParserCommand implements Command {
         if (request.getMethod().equals("POST")) {
             Part filePart = request.getPart("target");
             InputStream fileContent = filePart.getInputStream();
-            AbstractCandyParser parser =
-                    null;
+            AbstractCandyParser parser = null;
             try {
                 parser = CandyParserFactory.createCandyParser(request.getParameter("parser"));
                 parser.parseCandies(fileContent);

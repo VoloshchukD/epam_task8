@@ -1,8 +1,6 @@
 package by.epamtc.servlet.command;
 
 import by.epamtc.exception.CandyParsingException;
-import by.epamtc.parser.AbstractCandyParser;
-import by.epamtc.parser.CandyParserFactory;
 import by.epamtc.servlet.Command;
 import by.epamtc.validator.CandyValidator;
 import org.apache.logging.log4j.Level;

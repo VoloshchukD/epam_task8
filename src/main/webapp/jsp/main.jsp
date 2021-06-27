@@ -36,7 +36,82 @@
                 <td>
                     <c:if test="${ not empty candy.types }">
                         <c:forEach items="${candy.types}" var="type">
-                            <c:out value="${type}"/>
+                            <c:choose>
+
+                                <c:when test="${type['class'].simpleName == 'ChocolateType'}">
+                                    Chocolate
+                                    <table>
+                                        <tr>
+                                            <th>variety</th>
+                                            <th>withFilling</th>
+                                            <th>unsweetened</th>
+                                            <th>withCoating</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <c:out value="${type.variety}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.withFilling}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.unsweetened}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.withCoating}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </c:when>
+
+                                <c:when test="${type['class'].simpleName == 'IrisType'}">
+                                    Iris
+                                    <table>
+                                        <tr>
+                                            <th>variety</th>
+                                            <th>withFlavor</th>
+                                            <th>consistency</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <c:out value="${type.variety}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.withFlavor}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.consistency}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </c:when>
+
+                                <c:when test="${type['class'].simpleName == 'LollipopsType'}">
+                                    Iris
+                                    <table>
+                                        <tr>
+                                            <th>variety</th>
+                                            <th>onStick</th>
+                                            <th>thingsEmbedded</th>
+                                            <th>filling</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <c:out value="${type.variety}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.onStick}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.thingsEmbedded}"/>
+                                            </td>
+                                            <td>
+                                                <c:out value="${type.filling}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </c:when>
+                            </c:choose>
                         </c:forEach>
                     </c:if>
                 </td>
