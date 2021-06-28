@@ -4,11 +4,32 @@ public class IrisType extends CandyType {
 
     private static final boolean DEFAULT_WITH_FLAVOR = false;
 
-    private static final String DEFAULT_CONSISTENCY = "semi-solid";
+    private static final IrisConsistency DEFAULT_CONSISTENCY = IrisConsistency.SEMI_SOLID;
 
     private boolean withFlavor = DEFAULT_WITH_FLAVOR;
 
-    private String consistency = DEFAULT_CONSISTENCY;
+    private IrisConsistency consistency = DEFAULT_CONSISTENCY;
+
+    public enum IrisConsistency {
+
+        CAST_SEMI_SOLID,
+        REPLICATED,
+        SEMI_SOLID,
+        SOFT,
+        VISCOUS;
+
+        private static final String ENUM_WORDS_SEPARATOR = "_";
+
+        private static final String TAG_WORDS_SEPARATOR = "-";
+
+        public static IrisConsistency valueOfAttribute(String attributeName) {
+            String enumValueAsString = attributeName.replaceAll(
+                    TAG_WORDS_SEPARATOR, ENUM_WORDS_SEPARATOR).toUpperCase();
+            IrisConsistency enumValue = IrisConsistency.valueOf(enumValueAsString);
+            return enumValue;
+        }
+
+    }
 
     public boolean isWithFlavor() {
         return withFlavor;
@@ -18,11 +39,11 @@ public class IrisType extends CandyType {
         this.withFlavor = withFlavor;
     }
 
-    public String getConsistency() {
+    public IrisConsistency getConsistency() {
         return consistency;
     }
 
-    public void setConsistency(String consistency) {
+    public void setConsistency(IrisConsistency consistency) {
         this.consistency = consistency;
     }
 

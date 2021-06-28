@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Parser</title>
-    <%@ include file="header.jsp" %>
+    <%@ include file="../WEB-INF/jspf/header.jspf" %>
 </head>
 <body>
 <h3>Parse file</h3>

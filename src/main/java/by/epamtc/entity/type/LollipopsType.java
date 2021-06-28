@@ -2,13 +2,53 @@ package by.epamtc.entity.type;
 
 public class LollipopsType extends CandyType {
 
-    private static final String DEFAULT_THINGS_EMBEDDED = "none";
+    private static final LollipopThingsEmbedded DEFAULT_THINGS_EMBEDDED = LollipopThingsEmbedded.NONE;
 
     private boolean onStick;
 
-    private String thingsEmbedded = DEFAULT_THINGS_EMBEDDED;
+    private LollipopThingsEmbedded thingsEmbedded = DEFAULT_THINGS_EMBEDDED;
 
-    private String filling;
+    private LollipopFilling filling;
+
+    public enum LollipopFilling {
+
+        BUBBLEGUM,
+        SOFT_CANDY,
+        NONE,
+        LONG;
+
+        private static final String ENUM_WORDS_SEPARATOR = "_";
+
+        private static final String TAG_WORDS_SEPARATOR = "-";
+
+        public static LollipopsType.LollipopFilling valueOfAttribute(String attributeName) {
+            String enumValueAsString = attributeName.replaceAll(
+                    TAG_WORDS_SEPARATOR, ENUM_WORDS_SEPARATOR).toUpperCase();
+            LollipopsType.LollipopFilling enumValue = LollipopsType.LollipopFilling.valueOf(enumValueAsString);
+            return enumValue;
+        }
+
+    }
+
+    public enum LollipopThingsEmbedded {
+
+        INSECT,
+        FLASHING_LIGHT,
+        MOTORIZED_DEVICE,
+        NONE;
+
+        private static final String ENUM_WORDS_SEPARATOR = "_";
+
+        private static final String TAG_WORDS_SEPARATOR = "-";
+
+        public static LollipopsType.LollipopThingsEmbedded valueOfAttribute(String attributeName) {
+            String enumValueAsString = attributeName.replaceAll(
+                    TAG_WORDS_SEPARATOR, ENUM_WORDS_SEPARATOR).toUpperCase();
+            LollipopsType.LollipopThingsEmbedded enumValue = LollipopsType.LollipopThingsEmbedded.valueOf(enumValueAsString);
+            return enumValue;
+        }
+
+    }
 
     public boolean isOnStick() {
         return onStick;
@@ -18,19 +58,19 @@ public class LollipopsType extends CandyType {
         this.onStick = onStick;
     }
 
-    public String getThingsEmbedded() {
+    public LollipopThingsEmbedded getThingsEmbedded() {
         return thingsEmbedded;
     }
 
-    public void setThingsEmbedded(String thingsEmbedded) {
+    public void setThingsEmbedded(LollipopThingsEmbedded thingsEmbedded) {
         this.thingsEmbedded = thingsEmbedded;
     }
 
-    public String getFilling() {
+    public LollipopFilling getFilling() {
         return filling;
     }
 
-    public void setFilling(String filling) {
+    public void setFilling(LollipopFilling filling) {
         this.filling = filling;
     }
 

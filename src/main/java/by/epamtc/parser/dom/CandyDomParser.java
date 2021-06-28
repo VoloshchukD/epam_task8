@@ -125,7 +125,9 @@ public class CandyDomParser extends AbstractCandyParser {
         }
         String consistency = typeElement.getAttribute(CandyXmlTag.CONSISTENCY.toString());
         if (!consistency.isEmpty()) {
-            candyType.setConsistency(consistency);
+            IrisType.IrisConsistency consistencyAsEnum =
+                    IrisType.IrisConsistency.valueOfAttribute(consistency);
+            candyType.setConsistency(consistencyAsEnum);
         }
         return candyType;
     }
@@ -133,11 +135,16 @@ public class CandyDomParser extends AbstractCandyParser {
     private CandyType buildLollipopsType(Element typeElement) {
         LollipopsType candyType = new LollipopsType();
         candyType.setVariety(typeElement.getAttribute(CandyXmlTag.VARIETY.toString()));
-        candyType.setFilling(typeElement.getAttribute(CandyXmlTag.FILLING.toString()));
+        String filling = typeElement.getAttribute(CandyXmlTag.FILLING.toString());
+        LollipopsType.LollipopFilling fillingAsEnum =
+                LollipopsType.LollipopFilling.valueOfAttribute(filling);
+        candyType.setFilling(fillingAsEnum);
         candyType.setOnStick(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.ON_STICK.toString())));
         String thingsEmbedded = typeElement.getAttribute(CandyXmlTag.THING_EMBEDDED.toString());
         if (!thingsEmbedded.isEmpty()) {
-            candyType.setThingsEmbedded(thingsEmbedded);
+            LollipopsType.LollipopThingsEmbedded thingsEmbeddedAsEnum =
+                    LollipopsType.LollipopThingsEmbedded.valueOfAttribute(thingsEmbedded);
+            candyType.setThingsEmbedded(thingsEmbeddedAsEnum);
         }
         return candyType;
     }

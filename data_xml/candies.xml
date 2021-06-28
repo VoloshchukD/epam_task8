@@ -262,7 +262,7 @@
         <production-date>2021-07-04</production-date>
         <expiration-date>2022-09-22</expiration-date>
         <types>
-            <lollipops variety="long" filling="soft_candy" on-stick="true" thing-embedded="insect"/>
+            <lollipops variety="long" filling="soft-candy" on-stick="true" thing-embedded="insect"/>
         </types>
         <ingredients>
             <ingredient ingredient-name="sugar" weight="35" kind="granulated"/>

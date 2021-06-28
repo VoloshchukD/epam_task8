@@ -57,7 +57,7 @@ public class ParserTest {
         LollipopsType lollipopsType = new LollipopsType();
         lollipopsType.setVariety("wrapped");
         lollipopsType.setOnStick(true);
-        lollipopsType.setFilling("soft_candy");
+        lollipopsType.setFilling(LollipopsType.LollipopFilling.SOFT_CANDY);
         testCandy.addType(lollipopsType);
         Ingredient ingredient = new Ingredient();
         ingredient.setName("sugar");

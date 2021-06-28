@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Error</title>
-    <%@ include file="header.jsp" %>
+    <%@ include file="../WEB-INF/jspf/header.jspf" %>
 </head>
 <body>
 Request from ${pageContext.errorData.requestURI} is failed

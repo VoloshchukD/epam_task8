@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Validator</title>
-    <%@ include file="header.jsp" %>
+    <%@ include file="../WEB-INF/jspf/header.jspf" %>
 </head>
 <body>
 <h3>Validate file</h3>

@@ -87,7 +87,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.VARIETY.toString()));
                             String consistency = reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toString());
                             if (consistency != null) {
-                                irisType.setConsistency(consistency);
+                                irisType.setConsistency(IrisType.IrisConsistency.valueOfAttribute(consistency));
                             }
                             String withFlavor = reader.getAttributeValue(null, CandyXmlTag.WITH_FLAVOR.toString());
                             if (withFlavor != null) {
@@ -101,10 +101,13 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.VARIETY.toString()));
                             String thingsEmbedded = reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toString());
                             if (thingsEmbedded != null) {
-                                lollipopsType.setThingsEmbedded(thingsEmbedded);
+                                LollipopsType.LollipopThingsEmbedded thingsEmbeddedAsEnum =
+                                        LollipopsType.LollipopThingsEmbedded.valueOfAttribute(thingsEmbedded);
+                                lollipopsType.setThingsEmbedded(thingsEmbeddedAsEnum);
                             }
-                            lollipopsType.setFilling(reader.getAttributeValue(null,
-                                    CandyXmlTag.FILLING.toString()));
+                            String filling = reader.getAttributeValue(null, CandyXmlTag.FILLING.toString());
+                            LollipopsType.LollipopFilling fillingAsEnum = LollipopsType.LollipopFilling.valueOfAttribute(filling);
+                            lollipopsType.setFilling(fillingAsEnum);
                             lollipopsType.setOnStick(Boolean.parseBoolean(reader.getAttributeValue(null,
                                     CandyXmlTag.ON_STICK.toString())));
                             candy.addType(lollipopsType);

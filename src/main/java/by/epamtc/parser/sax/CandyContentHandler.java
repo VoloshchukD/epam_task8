@@ -54,7 +54,9 @@ public class CandyContentHandler extends DefaultHandler {
                 if (currentAttributeName.equals(CandyXmlTag.WITH_FLAVOR.toString())) {
                     currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(i)));
                 } else if (currentAttributeName.equals(CandyXmlTag.CONSISTENCY.toString())) {
-                        currentType.setConsistency(attributes.getValue(i));
+                    IrisType.IrisConsistency consistencyAsEnum =
+                            IrisType.IrisConsistency.valueOfAttribute(attributes.getValue(i));
+                        currentType.setConsistency(consistencyAsEnum);
                 } else if (currentAttributeName.equals(CandyXmlTag.VARIETY.toString())) {
                     currentType.setVariety(attributes.getValue(i));
                 }
@@ -65,9 +67,13 @@ public class CandyContentHandler extends DefaultHandler {
             for (int i = 0; i < attributes.getLength(); i++) {
                 String currentAttributeName = attributes.getQName(i);
                 if (currentAttributeName.equals(CandyXmlTag.FILLING.toString())) {
-                    currentType.setFilling(attributes.getValue(i));
+                    LollipopsType.LollipopFilling fillingAsEnum =
+                            LollipopsType.LollipopFilling.valueOfAttribute(attributes.getValue(i));
+                    currentType.setFilling(fillingAsEnum);
                 } else if (currentAttributeName.equals(CandyXmlTag.THING_EMBEDDED.toString())) {
-                    currentType.setThingsEmbedded(attributes.getValue(i));
+                    LollipopsType.LollipopThingsEmbedded thingsEmbeddedAsEnum =
+                            LollipopsType.LollipopThingsEmbedded.valueOfAttribute(attributes.getValue(i));
+                    currentType.setThingsEmbedded(thingsEmbeddedAsEnum);
                 } else if (currentAttributeName.equals(CandyXmlTag.VARIETY.toString())) {
                     currentType.setVariety(attributes.getValue(i));
                 } else if (currentAttributeName.equals(CandyXmlTag.ON_STICK.toString())) {
