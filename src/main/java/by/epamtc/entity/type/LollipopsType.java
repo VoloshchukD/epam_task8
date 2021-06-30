@@ -17,17 +17,6 @@ public class LollipopsType extends CandyType {
         NONE,
         LONG;
 
-        private static final String ENUM_WORDS_SEPARATOR = "_";
-
-        private static final String TAG_WORDS_SEPARATOR = "-";
-
-        public static LollipopsType.LollipopFilling valueOfAttribute(String attributeName) {
-            String enumValueAsString = attributeName.replaceAll(
-                    TAG_WORDS_SEPARATOR, ENUM_WORDS_SEPARATOR).toUpperCase();
-            LollipopsType.LollipopFilling enumValue = LollipopsType.LollipopFilling.valueOf(enumValueAsString);
-            return enumValue;
-        }
-
     }
 
     public enum LollipopThingsEmbedded {
@@ -36,17 +25,6 @@ public class LollipopsType extends CandyType {
         FLASHING_LIGHT,
         MOTORIZED_DEVICE,
         NONE;
-
-        private static final String ENUM_WORDS_SEPARATOR = "_";
-
-        private static final String TAG_WORDS_SEPARATOR = "-";
-
-        public static LollipopsType.LollipopThingsEmbedded valueOfAttribute(String attributeName) {
-            String enumValueAsString = attributeName.replaceAll(
-                    TAG_WORDS_SEPARATOR, ENUM_WORDS_SEPARATOR).toUpperCase();
-            LollipopsType.LollipopThingsEmbedded enumValue = LollipopsType.LollipopThingsEmbedded.valueOf(enumValueAsString);
-            return enumValue;
-        }
 
     }
 

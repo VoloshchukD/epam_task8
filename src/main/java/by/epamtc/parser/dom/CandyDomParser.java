@@ -126,7 +126,7 @@ public class CandyDomParser extends AbstractCandyParser {
         String consistency = typeElement.getAttribute(CandyXmlTag.CONSISTENCY.toString());
         if (!consistency.isEmpty()) {
             IrisType.IrisConsistency consistencyAsEnum =
-                    IrisType.IrisConsistency.valueOfAttribute(consistency);
+                    IrisType.IrisConsistency.valueOf(consistency.toUpperCase());
             candyType.setConsistency(consistencyAsEnum);
         }
         return candyType;
@@ -137,13 +137,13 @@ public class CandyDomParser extends AbstractCandyParser {
         candyType.setVariety(typeElement.getAttribute(CandyXmlTag.VARIETY.toString()));
         String filling = typeElement.getAttribute(CandyXmlTag.FILLING.toString());
         LollipopsType.LollipopFilling fillingAsEnum =
-                LollipopsType.LollipopFilling.valueOfAttribute(filling);
+                LollipopsType.LollipopFilling.valueOf(filling.toUpperCase());
         candyType.setFilling(fillingAsEnum);
         candyType.setOnStick(Boolean.parseBoolean(typeElement.getAttribute(CandyXmlTag.ON_STICK.toString())));
         String thingsEmbedded = typeElement.getAttribute(CandyXmlTag.THING_EMBEDDED.toString());
         if (!thingsEmbedded.isEmpty()) {
             LollipopsType.LollipopThingsEmbedded thingsEmbeddedAsEnum =
-                    LollipopsType.LollipopThingsEmbedded.valueOfAttribute(thingsEmbedded);
+                    LollipopsType.LollipopThingsEmbedded.valueOf(thingsEmbedded.toUpperCase());
             candyType.setThingsEmbedded(thingsEmbeddedAsEnum);
         }
         return candyType;

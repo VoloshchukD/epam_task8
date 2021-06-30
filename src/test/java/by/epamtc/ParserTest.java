@@ -8,9 +8,7 @@ import by.epamtc.entity.type.IrisType;
 import by.epamtc.entity.type.LollipopsType;
 import by.epamtc.exception.CandyParsingException;
 import by.epamtc.parser.AbstractCandyParser;
-import by.epamtc.parser.dom.CandyDomParser;
-import by.epamtc.parser.sax.CandySaxParser;
-import by.epamtc.parser.stax.CandyStaxParser;
+import by.epamtc.parser.CandyParserFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -32,11 +30,10 @@ public class ParserTest {
     private static File file;
 
     @BeforeClass
-    public static void setUpFileName() throws FileNotFoundException {
+    public static void setUpFileName() {
         ClassLoader loader = ParserTest.class.getClassLoader();
         URL resource = loader.getResource("test.xml");
         file = new File(resource.getFile());
-
     }
 
     @BeforeClass
@@ -84,29 +81,28 @@ public class ParserTest {
 
     @Test
     public void testSaxParser() throws FileNotFoundException, CandyParsingException {
-        InputStream inputStream = new FileInputStream(file);
-        parser = new CandySaxParser();
-        parser.parseCandies(inputStream);
-        Set<Candy> candies = parser.getCandies();
+        Set<Candy> candies = parseTestCandies("SAX");
         Assert.assertEquals(candies.toArray()[0], testCandy);
     }
 
     @Test
     public void testStaxParser() throws FileNotFoundException, CandyParsingException {
-        InputStream inputStream = new FileInputStream(file);
-        parser = new CandyStaxParser();
-        parser.parseCandies(inputStream);
-        Set<Candy> candies = parser.getCandies();
+        Set<Candy> candies = parseTestCandies("STAX");
         Assert.assertEquals(candies.toArray()[0], testCandy);
     }
 
     @Test
     public void testDomParser() throws FileNotFoundException, CandyParsingException {
+        Set<Candy> candies = parseTestCandies("DOM");
+        Assert.assertEquals(candies.toArray()[0], testCandy);
+    }
+
+    public Set<Candy> parseTestCandies(String parserName) throws FileNotFoundException, CandyParsingException {
         InputStream inputStream = new FileInputStream(file);
-        parser = new CandyDomParser();
+        parser = CandyParserFactory.createCandyParser(parserName);
         parser.parseCandies(inputStream);
         Set<Candy> candies = parser.getCandies();
-        Assert.assertEquals(candies.toArray()[0], testCandy);
+        return candies;
     }
 
 }

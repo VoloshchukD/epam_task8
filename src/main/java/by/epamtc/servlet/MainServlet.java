@@ -1,7 +1,5 @@
 package by.epamtc.servlet;
 
-import by.epamtc.servlet.command.CommandProvider;
-
 import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -9,9 +7,6 @@ import javax.servlet.http.*;
 public class MainServlet extends HttpServlet {
 
     private static final CommandProvider provider = CommandProvider.getInstance();
-
-    public void init() {
-    }
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         doProcess(req, resp);
@@ -26,9 +21,6 @@ public class MainServlet extends HttpServlet {
         String commandName = req.getParameter("command");
         Command command = provider.getCommand(commandName);
         command.execute(req, resp);
-    }
-
-    public void destroy() {
     }
 
 }

@@ -18,17 +18,6 @@ public class IrisType extends CandyType {
         SOFT,
         VISCOUS;
 
-        private static final String ENUM_WORDS_SEPARATOR = "_";
-
-        private static final String TAG_WORDS_SEPARATOR = "-";
-
-        public static IrisConsistency valueOfAttribute(String attributeName) {
-            String enumValueAsString = attributeName.replaceAll(
-                    TAG_WORDS_SEPARATOR, ENUM_WORDS_SEPARATOR).toUpperCase();
-            IrisConsistency enumValue = IrisConsistency.valueOf(enumValueAsString);
-            return enumValue;
-        }
-
     }
 
     public boolean isWithFlavor() {

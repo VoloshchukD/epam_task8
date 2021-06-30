@@ -67,9 +67,9 @@
                 <attribute name="consistency" use="optional" default="semi-solid">
                     <simpleType>
                         <restriction base="string">
-                            <enumeration value="cast-semi-solid"/>
+                            <enumeration value="cast_semi_solid"/>
                             <enumeration value="replicated"/>
-                            <enumeration value="semi-solid"/>
+                            <enumeration value="semi_solid"/>
                             <enumeration value="soft"/>
                             <enumeration value="viscous"/>
                         </restriction>
@@ -86,7 +86,7 @@
                     <simpleType>
                         <restriction base="string">
                             <enumeration value="bubblegum"/>
-                            <enumeration value="soft-candy"/>
+                            <enumeration value="soft_candy"/>
                             <enumeration value="none"/>
                             <enumeration value="long"/>
                         </restriction>
@@ -96,8 +96,8 @@
                     <simpleType>
                         <restriction base="string">
                             <enumeration value="insect"/>
-                            <enumeration value="flashing-light"/>
-                            <enumeration value="motorized-device"/>
+                            <enumeration value="flashing_light"/>
+                            <enumeration value="motorized_device"/>
                             <enumeration value="none"/>
                         </restriction>
                     </simpleType>

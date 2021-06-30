@@ -1,6 +1,6 @@
-package by.epamtc.servlet.command;
+package by.epamtc.servlet;
 
-import by.epamtc.servlet.Command;
+import by.epamtc.servlet.command.*;
 
 import java.util.HashMap;
 import java.util.Map;

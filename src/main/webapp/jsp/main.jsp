@@ -87,7 +87,7 @@
                                 </c:when>
 
                                 <c:when test="${type['class'].simpleName == 'LollipopsType'}">
-                                    Iris
+                                    Lollipop
                                     <table>
                                         <tr>
                                             <th>variety</th>

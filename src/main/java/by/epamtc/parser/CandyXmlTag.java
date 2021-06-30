@@ -25,9 +25,6 @@ public enum CandyXmlTag {
     INGREDIENTS,
     INGREDIENT,
     PRODUCTION,
-    TYPE_NAME,
-    PREPARATION,
-    SPECIES,
     INGREDIENT_NAME,
     WEIGHT,
     VALUE,
@@ -40,16 +37,8 @@ public enum CandyXmlTag {
     private static final String TAG_WORDS_SEPARATOR = "-";
 
     public static CandyXmlTag valueOfTag(String tag) {
-        CandyXmlTag[] tags = CandyXmlTag.values();
-        CandyXmlTag tagAsEnum = null;
-        int i = 0;
-        while (i < tags.length) {
-            if (tags[i].toString().equals(tag)) {
-                tagAsEnum = tags[i];
-                break;
-            }
-            i++;
-        }
+        String enumValueAsString = tag.replaceAll(TAG_WORDS_SEPARATOR, ENUM_WORDS_SEPARATOR).toUpperCase();
+        CandyXmlTag tagAsEnum = CandyXmlTag.valueOf(enumValueAsString);
         return tagAsEnum;
     }
 

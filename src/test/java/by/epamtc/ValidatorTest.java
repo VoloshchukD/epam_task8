@@ -13,6 +13,8 @@ import java.net.URL;
 
 public class ValidatorTest {
 
+    private static final ClassLoader loader = ValidatorTest.class.getClassLoader();
+
     private FileInputStream schemaInputStream;
 
     private FileInputStream targetInputStream;
@@ -21,21 +23,16 @@ public class ValidatorTest {
 
     @Before
     public void setUpFileName() throws FileNotFoundException {
-        ClassLoader loader = ValidatorTest.class.getClassLoader();
-        URL schemaUrl = loader.getResource("test.xsd");
-        String schemaFileName = new File(schemaUrl.getFile()).getAbsolutePath();
-        File schemaFile = new File(schemaFileName);
-        schemaInputStream = new FileInputStream(schemaFile);
+        schemaInputStream = createInputStream("test.xsd");
+        targetInputStream = createInputStream("test.xml");
+        wrongTargetInputStream = createInputStream("wrong.xml");
+    }
 
-        URL targetFileUrl = loader.getResource("test.xml");
-        String targetFileName = new File(targetFileUrl.getFile()).getAbsolutePath();
-        File targetFile = new File(targetFileName);
-        targetInputStream = new FileInputStream(targetFile);
-
-        URL wrongTargetFileUrl = loader.getResource("wrong.xml");
-        String wrongTargetFileName = new File(wrongTargetFileUrl.getFile()).getAbsolutePath();
-        File wrongTargetFile = new File(wrongTargetFileName);
-        wrongTargetInputStream = new FileInputStream(wrongTargetFile);
+    private FileInputStream createInputStream(String fileName) throws FileNotFoundException {
+        URL url = loader.getResource(fileName);
+        String filePath = new File(url.getFile()).getAbsolutePath();
+        File file = new File(filePath);
+        return new FileInputStream(file);
     }
 
     @Test

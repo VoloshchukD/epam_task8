@@ -55,8 +55,8 @@ public class CandyContentHandler extends DefaultHandler {
                     currentType.setWithFlavor(Boolean.parseBoolean(attributes.getValue(i)));
                 } else if (currentAttributeName.equals(CandyXmlTag.CONSISTENCY.toString())) {
                     IrisType.IrisConsistency consistencyAsEnum =
-                            IrisType.IrisConsistency.valueOfAttribute(attributes.getValue(i));
-                        currentType.setConsistency(consistencyAsEnum);
+                            IrisType.IrisConsistency.valueOf(attributes.getValue(i).toUpperCase());
+                    currentType.setConsistency(consistencyAsEnum);
                 } else if (currentAttributeName.equals(CandyXmlTag.VARIETY.toString())) {
                     currentType.setVariety(attributes.getValue(i));
                 }
@@ -68,11 +68,11 @@ public class CandyContentHandler extends DefaultHandler {
                 String currentAttributeName = attributes.getQName(i);
                 if (currentAttributeName.equals(CandyXmlTag.FILLING.toString())) {
                     LollipopsType.LollipopFilling fillingAsEnum =
-                            LollipopsType.LollipopFilling.valueOfAttribute(attributes.getValue(i));
+                            LollipopsType.LollipopFilling.valueOf(attributes.getValue(i).toUpperCase());
                     currentType.setFilling(fillingAsEnum);
                 } else if (currentAttributeName.equals(CandyXmlTag.THING_EMBEDDED.toString())) {
                     LollipopsType.LollipopThingsEmbedded thingsEmbeddedAsEnum =
-                            LollipopsType.LollipopThingsEmbedded.valueOfAttribute(attributes.getValue(i));
+                            LollipopsType.LollipopThingsEmbedded.valueOf(attributes.getValue(i).toUpperCase());
                     currentType.setThingsEmbedded(thingsEmbeddedAsEnum);
                 } else if (currentAttributeName.equals(CandyXmlTag.VARIETY.toString())) {
                     currentType.setVariety(attributes.getValue(i));
@@ -108,7 +108,7 @@ public class CandyContentHandler extends DefaultHandler {
             }
             currentCandy.setValue(value);
         } else {
-                currentXmlTag = CandyXmlTag.valueOfTag(qName);
+            currentXmlTag = CandyXmlTag.valueOfTag(qName);
         }
     }
 

@@ -29,6 +29,11 @@ public class Candy {
         ingredients = new HashSet<>();
     }
 
+    public Candy(Set<CandyType> types, Set<Ingredient> ingredients) {
+        this.types = types;
+        this.ingredients = ingredients;
+    }
+
     public String getName() {
         return name;
     }

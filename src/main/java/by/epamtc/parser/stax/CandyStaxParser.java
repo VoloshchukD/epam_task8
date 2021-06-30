@@ -87,7 +87,7 @@ public class CandyStaxParser extends AbstractCandyParser {
                                     CandyXmlTag.VARIETY.toString()));
                             String consistency = reader.getAttributeValue(null, CandyXmlTag.CONSISTENCY.toString());
                             if (consistency != null) {
-                                irisType.setConsistency(IrisType.IrisConsistency.valueOfAttribute(consistency));
+                                irisType.setConsistency(IrisType.IrisConsistency.valueOf(consistency.toUpperCase()));
                             }
                             String withFlavor = reader.getAttributeValue(null, CandyXmlTag.WITH_FLAVOR.toString());
                             if (withFlavor != null) {
@@ -102,11 +102,11 @@ public class CandyStaxParser extends AbstractCandyParser {
                             String thingsEmbedded = reader.getAttributeValue(null, CandyXmlTag.THING_EMBEDDED.toString());
                             if (thingsEmbedded != null) {
                                 LollipopsType.LollipopThingsEmbedded thingsEmbeddedAsEnum =
-                                        LollipopsType.LollipopThingsEmbedded.valueOfAttribute(thingsEmbedded);
+                                        LollipopsType.LollipopThingsEmbedded.valueOf(thingsEmbedded.toUpperCase());
                                 lollipopsType.setThingsEmbedded(thingsEmbeddedAsEnum);
                             }
                             String filling = reader.getAttributeValue(null, CandyXmlTag.FILLING.toString());
-                            LollipopsType.LollipopFilling fillingAsEnum = LollipopsType.LollipopFilling.valueOfAttribute(filling);
+                            LollipopsType.LollipopFilling fillingAsEnum = LollipopsType.LollipopFilling.valueOf(filling.toUpperCase());
                             lollipopsType.setFilling(fillingAsEnum);
                             lollipopsType.setOnStick(Boolean.parseBoolean(reader.getAttributeValue(null,
                                     CandyXmlTag.ON_STICK.toString())));

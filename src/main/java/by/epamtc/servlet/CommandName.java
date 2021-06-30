@@ -1,4 +1,4 @@
-package by.epamtc.servlet.command;
+package by.epamtc.servlet;
 
 public enum CommandName {
 
