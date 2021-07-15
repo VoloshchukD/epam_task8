@@ -64,7 +64,7 @@
         <complexContent>
             <extension base="tns:CandyType">
                 <attribute name="with-flavor" type="boolean" use="optional" default="false"/>
-                <attribute name="consistency" use="optional" default="semi-solid">
+                <attribute name="consistency" use="optional" default="semi_solid">
                     <simpleType>
                         <restriction base="string">
                             <enumeration value="cast_semi_solid"/>

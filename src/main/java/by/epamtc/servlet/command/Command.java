@@ -1,4 +1,4 @@
-package by.epamtc.servlet;
+package by.epamtc.servlet.command;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
